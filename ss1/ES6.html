@@ -37,8 +37,9 @@
     let countRating = courses.filter((course) => course.rating >= 4)
     console.log(countRating);
     // câu 2
-    let countRatingLessThan = courses.filter((coursess) => coursess.rating < 4)
-    console.log(countRatingLessThan);
+    let countRatingLessThan = courses.filter((coursess) => coursess.rating < 4).map(coursess => `${coursess.id}-${coursess.title}-${coursess.rating}`)
+
+    console.log(countRatingLessThan)
 
     let addedCourses = [
         {
@@ -57,8 +58,8 @@
             rating: 3.8,
         },
     ];
-    let arr = [...courses, ...addedCourses]
-    console.log(arr);
+    let newArr = (courses, addedCourses) => [...courses, ...addedCourses]
+    console.log(newArr(courses, addedCourses));
 
 </script>
 
