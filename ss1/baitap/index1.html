@@ -6,37 +6,19 @@
 </head>
 <body>
 <script>
-// let arr = [2,4,5,6];
-// hàm foreach ko có return
-// let newArr = arr.forEach((value) => {
-//     console.log(value)
-// })
-// map duyệt mảng óc trả về 1 mảng mới
-//     let newArr = arr.map((value =>  value + "A"))
-// console.log(newArr)
-// console.log(arr)
-// let newArr = arr.filter((value => {
-//     return value%2 != 0 && value > 4
-//     })
-// )
-// let  newArr = arr.filter((value,index) => {
-//     return index %2==0 && value%2==0;
-// })
-//
-// console.log(newArr)
-    let arr= [1,2,3];
-//     let sum = arr.reduce((previousValue,currentValue) => {
-//         return (previousValue + currentValue ,10);
-//     })
-// console.log(sum)
+let person={
+    name:"Khang",
+    address:"Đà Nẵng",
+    image:"abccc"
+}
+// let {name,...address}=person
+let name="Hung"
+    let {name:name1,address,image="No image"}=person
+console.log(name)
+console.log(name1)
+console.log(address)
+console.log(image)
 
-    let  result =arr.reduce((min,value)=>{
-        if(value >= min){
-            min= value;
-        }
-        return min;
-    })
-console.log(result)
 </script>
 </body>
 </html>

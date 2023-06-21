@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
     <title>Title</title>
     <style>
        .card-group{
@@ -12,6 +14,87 @@
         .card-container .card-group .card{
             border-left: 1px solid #0000002d;
         }
+       body {
+           background-color: #f9f9fa
+       }
+
+       .flex {
+           -webkit-box-flex: 1;
+           -ms-flex: 1 1 auto;
+           flex: 1 1 auto
+       }
+
+       @media (max-width:991.98px) {
+           .padding {
+               padding: 1.5rem
+           }
+       }
+
+       @media (max-width:767.98px) {
+           .padding {
+               padding: 1rem
+           }
+       }
+
+       .padding {
+           padding: 70px
+       }
+
+       .row, .container {
+           margin: 0 auto;
+           padding: 0;
+       }
+       .pagination-container {
+            max-width: none;
+           width: 100%;
+       }
+
+       .pagination-container .card {
+           background-color: transparent;
+           border: none;
+       }
+       .pagination-container .stretch-card {
+           max-width: none;
+           flex: 1;
+           padding: 0;
+       }
+        .pagination.pagination-success {
+            justify-content: flex-end !important;
+        }
+
+       .pagination,
+       .jsgrid .jsgrid-pager {
+           display: flex;
+           padding-left: 0;
+           list-style: none;
+           border-radius: 0.25rem
+       }
+
+       .page-link {
+           color: black
+       }
+
+       .pagination.pagination-rounded-flat .page-item {
+           margin: 0 .25rem
+       }
+
+       .pagination-rounded-flat{
+
+       }
+
+       .pagination-success .page-item.active .page-link,
+       a {
+           background: #00c689;
+           border-color: #00c689
+       }
+
+       .pagination.pagination-rounded-flat .page-item .page-link, a {
+           border: none;
+           border-radius: 50px;
+       }
+        .card-footer{
+            text-align: end;
+        }
 
     </style>
 </head>
@@ -19,91 +102,164 @@
 <div class="card-container" style=" padding: 0 70px;">
     <div class="card-group">
         <div class="card">
-            <img src="https://chungcu365.com/uploads/22/a-119/20191211160802-763a.jpg" class="card-img-top" alt="...">
+            <img src="https://booking-static.vinpearl.com/room_types/6566f8500c334c14b7c9a6595a04b2c9_D8H_7166.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">SENVILA Boutique Resort Hội An</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <h5 class="card-title">Twin</h5>
+                <p class="card-text">Couple bed , Enjoy this wonderful relaxing time</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <button class="btn btn-success" style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
+
+
             </div>
         </div>
         <div class="card">
-            <img src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2016/12/14524623_1122507874452688_5292429852679961429_o.jpg" class="card-img-top" alt="...">
+            <img src="https://booking-static.vinpearl.com/room_types/363438a81590466697fafaad3eb2ac97_POP_0790.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Deluxe </h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <button  class="btn btn-success"  style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
         <div class="card">
-            <img src="https://vinpearlresortvietnam.com/wp-content/uploads/vinpearl-phu-quoc-resort-golf-1-1.jpg" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/442448238.jpg?k=a8e54edc723efd520c7af73f0ab070e973ceb5e1b158b55a59ebad9899455e67&o=&hp=1" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Casual Dinning</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
             </div>
             <div class="card-footer">
-                <small class="text-muted">Last updated 3 mins ago</small>
+                <button  class="btn btn-success"  style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
     </div>
 
     <div class="card-group">
         <div class="card">
-            <img src="https://media.vov.vn/sites/default/files/styles/large/public/2022-05/1_1_3.jpg" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/253182067.jpg?k=e789dcaba30f25b84fa4eaa6c0418907412b5b9f6fb114a9d98f72ae1ff9eae2&o=&hp=1" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Outdoor Party</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+            </div>
+            <div class="card-footer">
+                <button   class="btn btn-success"  style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
         <div class="card">
-            <img src="https://dulichso.vn/wp-content/uploads/2019/12/check-in-furama-resort-224-nang-ve-chat-luong-dich-vu-voucher-at-ph-242-ng.jpg" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/462810703.jpg?k=7b5a7b0473e648c2269123abf0b762dd919747b9767bfec7954a5e1e3483bbc3&o=&hp=1" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Deluxe 2</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <div class="card-footer" >
+                <button  class="btn btn-success"   style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
         <div class="card">
-            <img src="https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/150/2017/06/19074329/ESwimming-Pool-6.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/44126000.jpg?k=ce0031a324d0c562d804d5dcd6e487e73b9c4bc49c80ee053762658acfbe0e06&o=&hp=1" class="card-img-top" alt="...">
+            <div class="Massage" style="padding: 20px">
+                <h5 class="card-title">House</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <div class="card-footer">
+                <button  class="btn btn-success"   style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
     </div>
     <div class="card-group">
         <div class="card">
-            <img src="https://angcovat.vn/imagesdata/TIN327127/1-cac-mau-bungalow-trong-resort-tren-bien.jpg" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/268611340.jpg?k=8166d9af187ec6951fcf8b8a047b20c7cc950f9d2f74f361a6ea6480b04a6d33&o=&hp=1" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Villa</h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <div class="card-footer">
+                <button  class="btn btn-success"   style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
         <div class="card">
-            <img src="https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2020/06/Review-Furama-Resort-Da-Nang-13.jpg" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/209186162.jpg?k=fee2bce064332027412a08d9b2e11585f376587a1b8fc952460ec2d09da323cf&o=&hp=1" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Bungalow</h5>
                 <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <div class="card-footer">
+                <button  class="btn btn-success"   style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
         <div class="card">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/371614943.jpg?k=27e679e152cb3fe872840ec8052d75b8a0d97f6fb69ce482bb5e86093ed42623&o=&hp=1"  style="height: 40vh ; width: 40vw" class="card-img-top" alt="...">
+            <img src="https://cf.bstatic.com/xdata/images/hotel/max1280x900/429302385.jpg?k=4a999e5f7efce5f168c08a659ce858055b7796be9fa0fbd375228eb692f803d7&o=&hp=1"  class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Villa </h5>
                 <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+            <div class="card-footer">
+                <button  class="btn btn-success"   style="background-color:#56cc9d;">Edit</button>
+                <button  class="btn btn-success" type="button"  style="background-color:#ff0039;" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="pagination-container row container d-flex justify-content-center">
+            <div class="col-md-4 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+
+                        <nav>
+                            <ul class="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-left"></i></a></li>
+                                <li class="page-item active"><a class="page-link" href="#" data-abc="true">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true">4</a></li>
+                                <li class="page-item"><a class="page-link" href="#" data-abc="true"><i class="fa fa-angle-right"></i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you deleted it?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </html>
