@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>    <style>
         .carousel-item {
             height: 65vh;
             min-height: 350px;
@@ -20,7 +20,7 @@
 <div>
 
 
-    <nav style="background-color: #149570;padding: 15px;position: fixed;width: 100%" class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav style="background-color: #149570;padding: 15px" class="navbar navbar-expand-lg " data-bs-theme="dark">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -55,18 +55,32 @@
                     </li>
                 </ul>
                 <form class="d-flex">
-                    <input  style="background-color:white;" class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button  class="btn btn-secondary my-2 my-sm-0"  style="background-color:black;;" type="submit" >Search</button>
+                    <input  style="background-color:white;" class="form-control me-sm-2" type="text" placeholder="Search"/>
+                    <button  class="btn btn-secondary my-2 my-sm-0"  style="background-color:black" type="submit" >Search</button>
                 </form>
             </div>
         </div>
     </nav>
 
 
-    <video style="width: 100%; height: 736px" autoplay muted loop>
-        <source src="https://www.danang.intercontinental.com/wp-content/uploads/2023/04/IHG21_AMBIENT-HEADER_Apr21_FINAL.mp4" type="video/mp4">
-    </video>
-    
+<!--    <video style="width: 100%; height: 825px" autoplay muted loop>-->
+<!--        <source src="https://www.danang.intercontinental.com/wp-content/uploads/2023/04/IHG21_AMBIENT-HEADER_Apr21_FINAL.mp4" type="video/mp4">-->
+<!--     -->
+<!--    </video>-->
+    <header>
+        <div id="indicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <video autoplay loop muted playsinline="playsinline"preload="metadata">
+                        <source src="https://www.danang.intercontinental.com/wp-content/uploads/2023/04/IHG21_AMBIENT-HEADER_Apr21_FINAL.mp4" type="video/mp4">
+                    </video>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3 class="display-4" style="color: white;margin: 0 auto;font-size: larger;  font-family: cursive;width: 100%; height: 825px}" >Relax In Special Moment</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
     
     <header style="padding-left: 30px;padding-right: 30px;height: 500px;width: 100%">
 
@@ -77,19 +91,19 @@
                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-                <div class="carousel-item active" style="background-image: url('https://www.nirvanatravel.cz/webdata/vietnam-hotely/vinpearl-nha-trang-09.jpg');">
+                <div class="carousel-item active" style="background-image: url('https://dulichchat.com/wp-content/uploads/2019/04/khu-nghi-duong-naman-retreat-da-nang-dulichchat-3.png');">
                     <div class="carousel-caption">
                         <h5>Kỳ Nghĩ Tuyệt Vời</h5>
                         <p>Bạn Hãy Thư Giãn Phút Giây Tuyệt Vời Bên Cạnh Người Mình Yêu Thương </p>
                     </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('https://www.nirvanatravel.cz/webdata/vietnam-hotely/vinpearl-nha-trang-02.jpg')">
+                <div class="carousel-item" style="background-image: url('https://dulichchat.com/wp-content/uploads/2019/04/khu-nghi-duong-premier-village-da-nang-dulichchat-1.png')">
                     <div class="carousel-caption">
                         <h5>Second slide label</h5>
                         <p>Some representative placeholder content for the second slide.</p>
                     </div>
                 </div>
-                <div class="carousel-item" style="background-image: url('https://pix8.agoda.net/hotelImages/1266957/-1/5db8f9f48c4a415da9006ed3ae688195.jpg?ca=7&ce=1&s=1024x768')">
+                <div class="carousel-item" style="background-image: url('https://wallpapercave.com/wp/wp3782995.jpg')">
                     <div class="carousel-caption">
                         <h5>Third slide label</h5>
                         <p>Some representative placeholder content for the third slide.</p>
@@ -110,5 +124,4 @@
 
 </div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </html>
