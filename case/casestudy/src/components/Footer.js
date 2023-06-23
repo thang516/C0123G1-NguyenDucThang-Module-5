@@ -1,5 +1,6 @@
 import './footer.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from "react";
 
  export function Footer() {
 
@@ -11,14 +12,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                         <div className="col-md-4 col-sm-4 col-xs-4">
                             <div className="footer-text pull-left">
                                 <div className="d-flex">
-                                    <img
-                                        src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png"
-                                        alt=""
-                                    />
+                                    <img src="https://furamavietnam.com/wp-content/uploads/2018/08/logo@2x.png" alt=""/>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-md-2 col-sm-2 col-xs-2" />
+                        <div className="col-md-2 col-sm-2 col-xs-2"/>
                         <div className="col-md-2 col-sm-2 col-xs-2">
                             <h5 className="heading">Services</h5>
                             <ul>
@@ -47,13 +45,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                             </ul>
                         </div>
                     </div>
-                    <div className="divider mb-4"> </div>
-                    <div className="row" style={{ fontSize: 10 }}>
+                    <div className="divider mb-4"/>
+                    <div className="row" style={{fontSize:"10px"}}>
                         <div className="col-md-6 col-sm-6 col-xs-6">
                             <div className="pull-left">
-                                <p>
-                                    <i className="fa fa-copyright" /> 2023 Đức Thắng{" "}
-                                </p>
+                                <p><i className="fa fa-copyright"/> 2023 Đức Thắng </p>
                             </div>
                         </div>
                         <div className="col-md-6 col-sm-6 col-xs-6">
@@ -66,8 +62,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }
