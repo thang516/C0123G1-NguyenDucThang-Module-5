@@ -5,21 +5,21 @@ export class ToDo extends Component {
         super();
         this.state = {
             list: [],
-            items: ''
+            title: ''
         }
     }
 
     handleChange = (event) => {
         this.setState({
-            items: event
+            title: event
         })
         console.log(event)
     }
     handleAddItem = () => {
         this.setState((prev) => (
             {
-                list: [prev.items, ...prev.list],
-                items: ''
+                list: [prev.title, ...prev.list],
+                title: ''
             }
         ))
     }
@@ -27,7 +27,7 @@ export class ToDo extends Component {
     render() {
         return (
             <>
-                <input value={this.state.items} onChange={(event) => this.handleChange(event.target.value)}/>
+                <input value={this.state.title} onChange={(event) => this.handleChange(event.target.value)}/>
                 <button onClick={() => this.handleAddItem()}>Add</button>
                 <ul>
                     {
