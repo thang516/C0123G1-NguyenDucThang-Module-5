@@ -1,0 +1,14 @@
+
+.error {
+    color: red;
+    margin: 0;
+}
+#id-label{
+    padding-left: 20px;
+}
+.btn-create .btn-success{
+    margin: 60px;
+    text-align: center;
+    justify-content: center;
+    width: 30vw;
+}
