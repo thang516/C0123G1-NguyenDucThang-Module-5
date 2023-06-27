@@ -20,11 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2482ad88-350e-47a7-b772-bf09f59b0dfd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/casestudy/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/casestudy/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/casestudy/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ss1/baitap/index1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ES6.html" beforeDir="false" afterPath="$PROJECT_DIR$/ss1/ES6.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/.idea/test.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/form.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +54,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ss2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
@@ -78,6 +79,7 @@
       <workItem from="1687249094822" duration="6608000" />
       <workItem from="1687264005854" duration="10248000" />
       <workItem from="1687316486445" duration="580000" />
+      <workItem from="1687785717938" duration="151000" />
     </task>
     <servers />
   </component>
@@ -97,10 +99,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="496" y="104" key="FileChooserDialogImpl" timestamp="1687317072681">
+    <state x="496" y="104" key="FileChooserDialogImpl" timestamp="1687785874514">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="496" y="104" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1687317072681" />
+    <state x="496" y="104" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1687785874514" />
     <state x="160" y="0" key="SettingsEditor" timestamp="1687236563666">
       <screen x="0" y="0" width="1536" height="816" />
     </state>

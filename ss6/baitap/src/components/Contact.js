@@ -19,12 +19,10 @@ export function Contract() {
                 message: ''
             }}
                     validationSchema={Yup.object({
-                        name: Yup.string().required("bạn không thể để trống"),
-                        email: Yup.string().required("bạn không thể để trống").matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/, "bạn nhập cho đúng định dạng của gmail"),
-                        // .matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,"bạn vui lòng nhập chuẩn định dạng gmail"),
-                        phone: Yup.string().required("bạn không thể để trống").matches(/^(\+84|0)([35789])+([0-9]{8})$/, "bạn nhập cho đúng định dạng của phone"),
-                        // .matches(/^(\+84|0)([35789])+([0-9]{8})$/,'Bạn nhập cho đúng dạng số điện thoại việt nam'),
-                        message: Yup.string().required("bạn không được để trống")
+                        name: Yup.string().required(),
+                        email: Yup.string().required().matches(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/ ),
+                        phone: Yup.string().required().matches(/^(\+84|0)([35789])+([0-9]{8})$/),
+                        message: Yup.string().required()
                     })}
                     onSubmit={(values, {setSubmitting}) => {
                         setTimeout(() => {
@@ -44,22 +42,23 @@ export function Contract() {
                                             <h1>Contract Form</h1>
                                         </div>
                                         <Form>
-                                            <div className="mt-4 inputs"><span>Name </span>
-                                                <Field type="text" className="form-control" name="name"/>
+                                            <div className="mt-4 inputs"><label>Name </label>
+                                                <Field  type="text" className="form-control" name="name"/>
+
                                                 <ErrorMessage name='name' component='span' className='error'/>
                                             </div>
-                                            <div className="mt-2 inputs"><span>Email</span>
+                                            <div className="mt-2 inputs"><label>Email</label>
                                                 <Field className="form-control" type="text" name="email"/>
                                                 <ErrorMessage name="email" component='span' className='error'/>
                                             </div>
 
-                                            <div className="mt-2 inputs"><span>Phone Number</span>
+                                            <div className="mt-2 inputs"><label>Phone Number</label>
                                                 <Field className="form-control" type="text" name="phone"/>
                                                 <ErrorMessage name="phone" component="span" className='error'/>
                                             </div>
 
 
-                                            <div className="mt-2 inputs"><span>Message</span>
+                                            <div className="mt-2 inputs"><label>Message</label>
                                                 <Field className="form-control" name="message" component="textarea"/>
                                                 <ErrorMessage name="message" component="span" className='error'/>
 
