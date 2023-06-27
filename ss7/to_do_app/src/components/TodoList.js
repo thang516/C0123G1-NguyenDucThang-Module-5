@@ -25,7 +25,7 @@ export function TodoList() {
             <h1>Todo List</h1>
             <Formik initialValues={{
                 title: ""
-            }} onSubmit={(values,{resetForm}) => {
+            }} onSubmit={(values, {resetForm}) => {
                 const create = async () => {
                     await axios.post('http://localhost:8080/todo', values)
                     fetchApi();
