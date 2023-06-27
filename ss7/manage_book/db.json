@@ -1,41 +1,6 @@
 {
   "books": [
     {
-      "title": "jajaj",
-      "quantity": "121",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "title": "book number two",
-      "quantity": 100
-    },
-    {
-      "id": 3,
-      "title": "book number three",
-      "quantity": 120
-    },
-    {
-      "title": "sad",
-      "quantity": "011",
-      "id": 4
-    },
-    {
-      "title": "helloman",
-      "quantity": "1",
-      "id": 5
-    },
-    {
-      "title": "hêm",
-      "quantity": "4",
-      "id": 6
-    },
-    {
-      "title": "sss",
-      "quantity": "3",
-      "id": 7
-    },
-    {
       "title": "ssssss",
       "quantity": "0111",
       "id": 8

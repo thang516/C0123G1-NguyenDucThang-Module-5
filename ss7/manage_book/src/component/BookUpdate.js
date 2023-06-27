@@ -11,19 +11,19 @@ export function BookUpdate() {
     useEffect(() => {
         const fetchApi = async () => {
             const result = await axios.get(`http://localhost:8080/books/${param.id}`)
-            setBook(result);
+            setBook(result.data);
         }
         fetchApi()
-    },[param.id])
-    if(!book){
+    }, [param.id])
+    if (!book) {
         return null
     }
     return (
         <>
             <Formik initialValues={
                 {
-                    title:  book?.title,
-                    quantity:  book?.quantity
+                    title: book?.title,
+                    quantity: book?.quantity
                 }
             } onSubmit={(values) => {
                 const update = async () => {
