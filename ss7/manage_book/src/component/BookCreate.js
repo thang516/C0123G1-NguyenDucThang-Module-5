@@ -34,12 +34,16 @@ export function BookCreate() {
                     ({isSubmitting} )=> (
                    <Form>
                     <h1>Add a new Book</h1>
-                    <label>Title</label>
-                    <Field  name='title'/>
-                    <ErrorMessage name='title' component='span' className='form-err'/>
-                    <label>Quantity</label>
-                    <Field  name='quantity'/>
-                    <ErrorMessage className='form-err' component='span' name='quantity'/>
+                       <div>
+                           <label>Title</label>
+                           <Field   className="form-control"  name='title'/>
+                           <ErrorMessage name='title' component='span' className='form-err'/>
+                       </div>
+                        <div >
+                            <label>Quantity</label>
+                            <Field  className="form-control" name='quantity'/>
+                            <ErrorMessage className='form-err' component='span' name='quantity'/>
+                        </div>
                        {
                            isSubmitting ?
                                <TailSpin

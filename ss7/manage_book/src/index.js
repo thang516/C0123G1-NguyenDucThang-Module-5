@@ -4,27 +4,30 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {
+    BrowserRouter,
     createBrowserRouter,
     RouterProvider
 
 } from "react-router-dom";
 import {Book} from "./component/Book";
 import {BookCreate} from "./component/BookCreate";
-const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Book/>
-    },
-    {
-        path: "/create",
-        element: <BookCreate/>
-    },
-]);
+// const router = createBrowserRouter([
+//     {
+//         path: "/",
+//         element: <Book/>
+//     },
+//     {
+//         path: "/create",
+//         element: <BookCreate/>
+//     },
+// ]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
-    <RouterProvider router={router} />
+    {/*<RouterProvider router={router} />*/}
+    <BrowserRouter>
     <App />
+    </BrowserRouter>
     </React.StrictMode>
 
 );
