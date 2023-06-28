@@ -1,8 +1,10 @@
 import './updateService.css'
 import {useNavigate} from "react-router-dom";
+import Layout from "../views/Layout";
 export function CreateRoom() {
 const navigate = useNavigate();
     return(
+        <Layout>
         <>
 
             <div className="container mt-5 mb-5">
@@ -54,6 +56,7 @@ const navigate = useNavigate();
             </div>
 
         </>
+        </Layout>
     )
 
 }

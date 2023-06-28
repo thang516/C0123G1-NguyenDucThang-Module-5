@@ -1,0 +1,60 @@
+
+.padding {
+    padding: 70px
+}
+
+.row, .container {
+    margin: 0 auto;
+    padding: 0;
+}
+.pagination-container {
+    max-width: none;
+    width: 100%;
+}
+
+.pagination-container .card {
+    background-color: transparent;
+    border: none;
+}
+.pagination-container .stretch-card {
+    max-width: none;
+    flex: 1;
+    padding: 0;
+}
+.pagination.pagination-success {
+    justify-content: flex-end !important;
+}
+
+.pagination,
+.jsgrid .jsgrid-pager {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: 0.25rem
+}
+
+.page-link {
+    color: black
+}
+
+.pagination.pagination-rounded-flat .page-item {
+    margin: 0 .25rem
+}
+
+.pagination-rounded-flat{
+
+}
+
+.pagination-success .page-item.active .page-link,
+a {
+    background: #00c689;
+    border-color: #00c689
+}
+
+.pagination.pagination-rounded-flat .page-item .page-link, a {
+    border: none;
+    border-radius: 50px;
+}
+.card-footer{
+    text-align: end;
+}

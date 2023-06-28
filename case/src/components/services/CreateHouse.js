@@ -1,10 +1,11 @@
 import './updateService.css'
 import {} from "react-router-dom"
 import {useNavigate} from "react-router-dom";
+import Layout from "../views/Layout";
 export function CreateHouse() {
 const navigate = useNavigate()
     return(
-    <>
+    <Layout>
 
         <div className="container mt-5 mb-5">
             <div className="row height d-flex justify-content-center align-items-center">
@@ -64,7 +65,7 @@ const navigate = useNavigate()
             </div>
         </div>
 
-    </>
+    </Layout>
 )
 
 }

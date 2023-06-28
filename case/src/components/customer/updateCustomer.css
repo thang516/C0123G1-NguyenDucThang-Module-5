@@ -22,9 +22,7 @@ body {
     font-weight: 300
 }
 
-.height {
-    height: 100vh
-}
+
 
 .card {
     border: none;
@@ -65,4 +63,7 @@ body {
     border: 1px solid #212529;
     border-radius: 0.25rem;
     background-color: #149570;
+}
+.form-err{
+    color: red;
 }

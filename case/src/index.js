@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 import {CreateCustomer} from "./components/customer/CreateCustomer";
 import {Customer} from "./components/customer/Customer";
-import Home from "./components/Home";
+import Home from "./components/views/Home";
 import {UpdateCustomer} from "./components/customer/UpdateCustomer";
 import {Contract} from "./components/contract/Contract";
 import {CreateContract} from "./components/contract/CreateContract";
@@ -20,6 +20,7 @@ import {CreateHouse} from "./components/services/CreateHouse";
 import {CreateRoom} from "./components/services/CreateRoom";
 import {UpdateHouse} from "./components/services/UpdateHouse";
 import {UpdateRoom} from "./components/services/UpdateRoom";
+import {Facility} from "./components/services/Facility";
 
 const router = createBrowserRouter([
     {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home/>
     },
+    {
+        path: "/facility",
+        element: <Facility/>
+    },
     // {
     //     path: "/updateRoom",
     //     element: <UpdateRoom/>
@@ -83,7 +88,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router} >
+      <RouterProvider router={router}>
     <App />
       </RouterProvider>
   </React.StrictMode>

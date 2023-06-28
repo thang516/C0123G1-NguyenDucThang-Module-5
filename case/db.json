@@ -1,0 +1,189 @@
+{
+  "customer": [
+    {
+      "id": 1,
+      "name": "Nguyễn Đức Thắng",
+      "type": "Diamond",
+      "dayOfBirth": "05/06/2001",
+      "gender": "Nam",
+      "identityCard": "201854945",
+      "phoneNumber": "0782391943",
+      "email": "nguyenthangfa2001@gmail.com",
+      "address": "Hoa Xuan,Cam Le,Da Nang"
+    },
+    {
+      "id": 2,
+      "name": "Đinh Nguyên Thảo",
+      "type": "Diamond",
+      "dayOfBirth": "11/11/2001",
+      "gender": "Nữ",
+      "identityCard": "201899999",
+      "phoneNumber": "0909129129",
+      "email": "nguyenthao@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "name": "Đinh Nguyen",
+      "type": "Silver",
+      "dayOfBirth": "2023-06-15",
+      "gender": "FeMale",
+      "identityCard": 2012121214,
+      "phoneNumber": 782391943,
+      "email": "thaodinh@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 7
+    },
+    {
+      "name": "Nguyen Huy Hoang",
+      "type": "Platinum",
+      "dayOfBirth": "2023-06-14",
+      "gender": "",
+      "identityCard": 201854945,
+      "phoneNumber": 909123837,
+      "email": "nguyenthangfa2001@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 8
+    },
+    {
+      "name": "Nguyễn Đức Thắng",
+      "type": "Diamond",
+      "dayOfBirth": "2023-07-01",
+      "gender": "Male",
+      "identityCard": 201854945,
+      "phoneNumber": 782391943,
+      "email": "nguyenthangfa2002@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 9
+    }
+  ],
+  "contract": [
+    {
+      "id": 1,
+      "contractCode": "HD-1",
+      "dayStart": "27/06/2023",
+      "endDay": "30/06/2023",
+      "deposit": "500 $",
+      "totalMoney": "1000 $"
+    },
+    {
+      "id": 2,
+      "contractCode": "HD-2",
+      "dayStart": "25/06/2023",
+      "endDay": "27/06/2023",
+      "deposit": "400 $",
+      "totalMoney": "1500 $"
+    }
+  ],
+  "facility": [
+    {
+      "id": 1,
+      "type": "Room",
+      "name": "Twin",
+      "area": 50,
+      "rentalCost": "800 $",
+      "maxPeople": "3",
+      "rentalType": "Day"
+    },
+    {
+      "id": 1,
+      "type": "House",
+      "name": "House Luxury",
+      "area": 100,
+      "rentalCost": "1.200 $",
+      "maxPeople": "5",
+      "rentalType": "Day"
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "type": "Room",
+      "name": "Twin",
+      "area": 50,
+      "rentalCost": "100 $",
+      "maxPeople": "3",
+      "rentalType": "Day",
+      "img": "https://booking-static.vinpearl.com/room_types/6566f8500c334c14b7c9a6595a04b2c9_D8H_7166.jpg"
+    },
+    {
+      "id": 2,
+      "type": "Room",
+      "name": "Deluxe",
+      "area": 100,
+      "rentalCost": "120 $",
+      "maxPeople": "2",
+      "rentalType": "Day",
+      "img": "https://booking-static.vinpearl.com/room_types/363438a81590466697fafaad3eb2ac97_POP_0790.jpg"
+    },
+    {
+      "id": 3,
+      "type": "Room",
+      "name": "Bungalow",
+      "area": 100,
+      "rentalCost": "150 $",
+      "maxPeople": "4",
+      "rentalType": "Day",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/442448238.jpg?k=a8e54edc723efd520c7af73f0ab070e973ceb5e1b158b55a59ebad9899455e67&o=&hp=1"
+    },
+    {
+      "id": 4,
+      "type": "House",
+      "name": "House Luxury",
+      "area": 100,
+      "rentalCost": "300 $",
+      "maxPeople": "5",
+      "rentalType": "Day",
+      "img": "https://ticotravel.com.vn/wp-content/uploads/2022/02/Phong-Nha-Lake-House-resort-23.jpg"
+    },
+    {
+      "id": 5,
+      "type": "House",
+      "name": "House Vintage",
+      "area": 100,
+      "rentalCost": "400$",
+      "maxPeople": "6",
+      "rentalType": "Day",
+      "img": "https://ik.imagekit.io/tvlk/blog/2019/12/nhung-resort-dep-o-phu-quoc-The-Garden-House-Phu-Quoc-2.jpg?tr=dpr-2,w-675"
+    },
+    {
+      "id": 6,
+      "type": "House",
+      "name": "Chilling House",
+      "area": 100,
+      "rentalCost": "500 $",
+      "maxPeople": "7",
+      "rentalType": "Day",
+      "img": "https://angcovat.vn/imagesdata/TIN327127/2-cac-mau-bungalow-trong-resort-dep.jpg"
+    },
+    {
+      "id": 7,
+      "type": "House",
+      "name": "Villa",
+      "area": 100,
+      "rentalCost": "800 $",
+      "maxPeople": "5",
+      "rentalType": "Day",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/268611340.jpg?k=8166d9af187ec6951fcf8b8a047b20c7cc950f9d2f74f361a6ea6480b04a6d33&o=&hp=1"
+    },
+    {
+      "id": 8,
+      "type": "Villa",
+      "name": "Villa Relax",
+      "area": 200,
+      "rentalCost": "1000 $",
+      "maxPeople": "7",
+      "rentalType": "Day",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/209186162.jpg?k=fee2bce064332027412a08d9b2e11585f376587a1b8fc952460ec2d09da323cf&o=&hp=1"
+    },
+    {
+      "id": 9,
+      "type": "Villa",
+      "name": "Villa Luxury",
+      "area": 100,
+      "rentalCost": "1500 $",
+      "maxPeople": "10",
+      "rentalType": "Day",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429302385.jpg?k=4a999e5f7efce5f168c08a659ce858055b7796be9fa0fbd375228eb692f803d7&o=&hp=1"
+    }
+  ]
+}

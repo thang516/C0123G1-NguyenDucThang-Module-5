@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 export function UpdateService() {
     const navigate = useNavigate();
     return(
-
+<Layout>
     <>
 
         <div className="container mt-5 mb-5">
@@ -74,5 +74,6 @@ export function UpdateService() {
         </div>
 
     </>
+</Layout>
 )
 }

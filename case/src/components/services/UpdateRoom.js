@@ -1,11 +1,12 @@
 
 import './updateService.css'
 import {useNavigate} from "react-router-dom";
+import Layout from "../views/Layout";
 export function UpdateRoom() {
     const navigate = useNavigate();
 return(
+    <Layout>
     <>
-
         <div className="container mt-5 mb-5">
             <div className="row height d-flex justify-content-center align-items-center">
                 <div className="col-md-6">
@@ -56,5 +57,6 @@ return(
 
 
     </>
+    </Layout>
 )
 }

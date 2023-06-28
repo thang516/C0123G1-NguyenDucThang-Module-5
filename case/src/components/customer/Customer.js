@@ -1,9 +1,54 @@
 import './customer.css'
+import Layout from "../views/Layout";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import sweat from "sweetalert2"
+import {toast, ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+
 export function Customer() {
+    const [customers,setCustomer] = useState([])
+    const  fetchApi = async () => {
+        try {
+            const result = await  axios.get('http://localhost:8080/customer')
+            setCustomer(result.data)
 
+        }catch (e) {
+            console.log(e)
+        }
+    }
+    useEffect(()=> {
 
+        fetchApi()
+    },[])
 
+    const deleteById = async (id)=>{
+        try{
+            await  axios.delete("http://localhost:8080/customer/"+id)
+            sweat.fire({
+                icon:"success",
+                title :"SUCCESSFULL",
+                timer :"2000"
+            })
+        }catch (e) {
+            console.log(e)
+        }
+        fetchApi()
+    }
+    function deleteCustomer(id,name) {
+        sweat.fire({
+            icon:"warning",
+            title :`Do You Want To Delete ${name} ?`,
+            showCancelButton: true,
+            confirmButtonText:"OK"
+        }).then(async (isDelete) =>{
+            if(isDelete.isConfirmed){
+            deleteById(id)
+            }
+        })
+    }
     return(
+        <Layout>
         <>
             <div style={{textAlign:" center"}}>
                 <h1>Customer List</h1>
@@ -13,40 +58,44 @@ export function Customer() {
                 <thead>
                 <tr>
                     <th>STT</th>
-                    <th>Customer Name</th>
+                    <th> Name</th>
                     <th>Type Customer</th>
-                    <th>Day Of Birth</th>
+                    <th>Birthday</th>
                     <th>Gender</th>
                     <th>Identity Card</th>
-                    <th>Phone Number</th>
+                    <th>Phone </th>
                     <th>Email</th>
                     <th>Address</th>
                     <th>Function</th>
                 </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td >1</td>
-                        <td>Nguyễn ĐỨc Thắng</td>
-                        <td>Diamond</td>
-                        <td>05/06/2001</td>
-                        <td>Nam</td>
-                        <td>201854945</td>
-                        <td>0782391943</td>
-                        <td>nguyenthangfa2001@gmail.com</td>
-                        <td>Hòa Xuân,Cẩm Lệ,Đà Nẵng</td>
-                        <td>
-                            <button className="btn btn-success" style={{backgroundColor: "#149570"}}>Edit</button>
-                        </td>
-                        <td>
-                            <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
-                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Delete
-                            </button>
-                        </td>
-                    </tr>
+                {
+                    customers.map((customer) => (
+                        <tr key={customer.id}>
+                            <td>{customer.id}</td>
+                            <td>{customer.name}</td>
+                            <td>{customer.type}</td>
+                            <td>{customer.dayOfBirth}</td>
+                            <td>{customer.gender}</td>
+                            <td>{customer.identityCard}</td>
+                            <td>{customer.phoneNumber}</td>
+                            <td>{customer.email}</td>
+                            <td>{customer.address}</td>
+                            <td>
+                                <button className="btn btn-success" style={{backgroundColor: "#149570"}}>Edit</button>
+                                <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
+                                     onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
+                                </button>
+                            </td>
 
+                        </tr>
+
+                    ))
+                }
                 </tbody>
             </table>
+
             <div className="page-content page-container" id="page-content">
                 <div className="padding">
                     <div className="pagination-container row container d-flex justify-content-center">
@@ -101,6 +150,19 @@ export function Customer() {
                     </div>
                 </div>
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </>
+        </Layout>
     )
 }
