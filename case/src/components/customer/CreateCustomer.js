@@ -38,7 +38,6 @@ export function CreateCustomer() {
                 }}
                         validationSchema={Yup.object({
                             name: Yup.string().required(),
-
                             identityCard: Yup.string().required()
 
                         })}

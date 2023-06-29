@@ -62,16 +62,16 @@
       "contractCode": "HD-1",
       "dayStart": "27/06/2023",
       "endDay": "30/06/2023",
-      "deposit": "500 $",
-      "totalMoney": "1000 $"
+      "deposit": 500,
+      "totalMoney": 1000
     },
     {
       "id": 2,
-      "contractCode": "HD-2",
+      "contractCode": "HD-245",
       "dayStart": "25/06/2023",
       "endDay": "27/06/2023",
-      "deposit": "400 $",
-      "totalMoney": "1500 $"
+      "deposit": 400,
+      "totalMoney": 1500
     }
   ],
   "facility": [
@@ -100,7 +100,7 @@
       "typeId": 1,
       "name": "Twin",
       "area": 50,
-      "rentalCost": "100 $",
+      "rentalCost": 100,
       "maxPeople": "3",
       "rentalType": "Day",
       "img": "https://booking-static.vinpearl.com/room_types/6566f8500c334c14b7c9a6595a04b2c9_D8H_7166.jpg"
@@ -110,20 +110,27 @@
       "typeId": 1,
       "name": "Deluxe",
       "area": 50,
-      "rentalCost": "100 $",
+      "rentalCost": 100,
       "maxPeople": "3",
       "rentalType": "Day",
       "img": "https://booking-static.vinpearl.com/room_types/363438a81590466697fafaad3eb2ac97_POP_0790.jpg"
     },
     {
-      "id": 3
+      "id": 3,
+      "typeId": 1,
+      "name": "Bungalow",
+      "area": 50,
+      "rentalCost": 300,
+      "maxPeople": "3",
+      "rentalType": "Day",
+      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/442448238.jpg?k=a8e54edc723efd520c7af73f0ab070e973ceb5e1b158b55a59ebad9899455e67&o=&hp=1"
     },
     {
       "id": 4,
       "typeId": 2,
       "name": "House Luxury",
       "area": 100,
-      "rentalCost": "300 $",
+      "rentalCost": 300,
       "maxPeople": "5",
       "rentalType": "Day",
       "img": "https://ticotravel.com.vn/wp-content/uploads/2022/02/Phong-Nha-Lake-House-resort-23.jpg"
@@ -133,7 +140,7 @@
       "typeId": 2,
       "name": "House Vintage",
       "area": 120,
-      "rentalCost": "150 $",
+      "rentalCost": 150,
       "maxPeople": "4",
       "rentalType": "Day",
       "img": "https://ik.imagekit.io/tvlk/blog/2019/12/nhung-resort-dep-o-phu-quoc-The-Garden-House-Phu-Quoc-2.jpg?tr=dpr-2,w-675"
@@ -143,7 +150,7 @@
       "typeId": 2,
       "name": "Chilling House",
       "area": 100,
-      "rentalCost": "500 $",
+      "rentalCost": 500,
       "maxPeople": "7",
       "rentalType": "Day",
       "img": "https://angcovat.vn/imagesdata/TIN327127/2-cac-mau-bungalow-trong-resort-dep.jpg"
@@ -153,7 +160,7 @@
       "typeId": 2,
       "name": "Villa",
       "area": 100,
-      "rentalCost": "800 $",
+      "rentalCost": 800,
       "maxPeople": "5",
       "rentalType": "Day",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/268611340.jpg?k=8166d9af187ec6951fcf8b8a047b20c7cc950f9d2f74f361a6ea6480b04a6d33&o=&hp=1"
@@ -163,7 +170,7 @@
       "typeId": 2,
       "name": "Villa Relax",
       "area": 200,
-      "rentalCost": "1000 $",
+      "rentalCost": 1000,
       "maxPeople": "7",
       "rentalType": "Day",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/209186162.jpg?k=fee2bce064332027412a08d9b2e11585f376587a1b8fc952460ec2d09da323cf&o=&hp=1"
@@ -173,23 +180,23 @@
       "typeId": 2,
       "name": "Villa Luxury",
       "area": 100,
-      "rentalCost": "1500 $",
+      "rentalCost": 1500,
       "maxPeople": "10",
       "rentalType": "Day",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429302385.jpg?k=4a999e5f7efce5f168c08a659ce858055b7796be9fa0fbd375228eb692f803d7&o=&hp=1"
     },
     {
       "id": 10,
-      "typeId": 2,
+      "typeId": 3,
       "name": "Nguyen Huy Hoang",
       "area": 200,
       "rentalCost": 1111,
       "maxPeople": "111",
       "rentalType": "Month",
       "descriptionOtherAmenities": "111",
-      "roomStandard": "111",
-      "floors": "111",
-      "areaSwimming": "111",
+      "roomStandard": "1111111",
+      "floors": "1111111",
+      "areaSwimming": "11111",
       "freeServiceIncluded": "",
       "img": "https://th.bing.com/th/id/R.77f7eb755ad3480164e127a38871795f?rik=NkuaVH5mZUQmtQ&pid=ImgRaw&r=0"
     }

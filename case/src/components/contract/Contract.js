@@ -3,32 +3,30 @@ import Layout from "../views/Layout";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import sweat from "sweetalert2"
+import * as serviceContract from "../service/ContractService"
+import {useNavigate} from "react-router-dom";
 
 export function Contract() {
     const [contract, setContract] = useState([])
-    const fetchApi = async () => {
-        try {
-            const result = await axios.get("http://localhost:8080/contract")
-            setContract(result.data)
-        } catch (e) {
-            console.log(e)
-        }
+const navigate= useNavigate();
+    const findAll =async () =>{
+        const result = await  serviceContract.getAll();
+        setContract(result)
     }
+
+
     useEffect(() => {
-        fetchApi();
+        findAll();
     }, [])
+
     const deleteById = async (id) => {
-        try {
-           await axios.delete("http://localhost:8080/contract/" + id)
+           await  serviceContract.deleteContract(id)
             sweat.fire({
                 icon: "success",
                 title: "SUCCESSFULLY",
                 timer: "2000"
             })
-        } catch (e) {
-            console.log(e)
-        }
-        fetchApi();
+      findAll()
     }
 
     function deleteContract(id, contractCode) {
@@ -81,12 +79,9 @@ export function Contract() {
                                 <td> {contracts.deposit}</td>
                                 <td>{contracts.totalMoney} </td>
                                 <td>
-                                    <button className="btn btn-success" style={{backgroundColor: "#149570"}}>Edit
+                                    <button className="btn btn-success" style={{backgroundColor: "#149570"}} onClick={()=>navigate("/updateContract/"+contracts.id)}>Edit
                                     </button>
-                                    <button className="btn btn-success"
-                                            onClick={() => deleteContract(contracts.id, contracts.contractCode)}
-                                            type="button" style={{backgroundColor: "#ff0039"}}
-                                    >Delete
+                                    <button className="btn btn-success"   onClick={() => deleteContract(contracts.id, contracts.contractCode)} type="button" style={{backgroundColor: "#ff0039"}}  >Delete
                                     </button>
                                 </td>
                             </tr>

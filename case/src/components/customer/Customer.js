@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import {useNavigate} from "react-router-dom";
 import * as customerService from "../service/CustomerService"
 import {getAllTypeCustomer} from "../service/CustomerService";
+import ReactPaginate from "react-paginate";
 export function Customer() {
     const navigate = useNavigate()
     const [customers,setCustomer] = useState([])
@@ -52,6 +53,75 @@ export function Customer() {
             }
         })
     }
+
+
+    function Items({ currentItems }) {
+        return (
+            <>
+                {currentItems &&
+                customers.map((customer) => (
+
+                        <tr key={customer.id}>
+                            <td>{customer.id}</td>
+                            <td>{customer.name}</td>
+                            <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>
+                            <td>{customer.dayOfBirth}</td>
+                            <td>{customer.gender}</td>
+                            <td>{customer.identityCard}</td>
+                            <td>{customer.phoneNumber}</td>
+                            <td>{customer.email}</td>
+                            <td>{customer.address}</td>
+                            <td>
+                                <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
+
+                                <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
+                                        onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    ))
+                }
+
+
+
+                ))}
+            </>
+        );
+    }
+
+    function PaginatedItems({ itemsPerPage , list}) {
+        const [itemOffset, setItemOffset] = useState(0);
+        const endOffset = itemOffset + itemsPerPage;
+        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        const currentItems = list.slice(itemOffset, endOffset);
+        const pageCount = Math.ceil(list.length / itemsPerPage);
+        const handlePageClick = (event) => {
+            const newOffset = (event.selected * itemsPerPage) % list.length;
+            setItemOffset(newOffset);
+        };
+
+        return (
+            <>
+                <Items currentItems={currentItems} />
+                <div className="pagination-card">
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel=">"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel="<"
+                        renderOnZeroPageCount={null}
+                    />
+                </div>
+            </>
+        );
+    }
+
+
+
     return(
         <Layout>
         <>
@@ -75,30 +145,30 @@ export function Customer() {
                 </tr>
                 </thead>
                 <tbody>
-                {
-                    customers.map((customer) => (
-                        <tr key={customer.id}>
-                            <td>{customer.id}</td>
-                            <td>{customer.name}</td>
-                            <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>
-                            <td>{customer.dayOfBirth}</td>
-                            <td>{customer.gender}</td>
-                            <td>{customer.identityCard}</td>
-                            <td>{customer.phoneNumber}</td>
-                            <td>{customer.email}</td>
-                            <td>{customer.address}</td>
-                            <td>
-                                <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
-
-                                <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
-                                     onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
-                                </button>
-                            </td>
-
-                        </tr>
-
-                    ))
-                }
+                {/*{*/}
+                {/*//     customers.map((customer) => (*/}
+                {/*//         <tr key={customer.id}>*/}
+                {/*//             <td>{customer.id}</td>*/}
+                {/*//             <td>{customer.name}</td>*/}
+                {/*//             <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>*/}
+                {/*//             <td>{customer.dayOfBirth}</td>*/}
+                {/*//             <td>{customer.gender}</td>*/}
+                {/*//             <td>{customer.identityCard}</td>*/}
+                {/*//             <td>{customer.phoneNumber}</td>*/}
+                {/*//             <td>{customer.email}</td>*/}
+                {/*//             <td>{customer.address}</td>*/}
+                {/*//             <td>*/}
+                {/*//                 <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>*/}
+                {/*//*/}
+                {/*//                 <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}*/}
+                {/*//                      onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete*/}
+                {/*//                 </button>*/}
+                {/*//             </td>*/}
+                {/*//*/}
+                {/*//         </tr>*/}
+                {/*//*/}
+                {/*//     ))*/}
+                {/*// }*/}
                 </tbody>
             </table>
 

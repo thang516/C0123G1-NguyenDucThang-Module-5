@@ -9,27 +9,38 @@ import 'react-toastify/dist/ReactToastify.css'
 import {LineWave} from "react-loader-spinner"
 import {useParams} from "react-router";
 import {renderToReadableStream} from "react-dom/server";
-
+import * as serviceSer from "../service/ServicesSer"
 export function UpdateSer() {
     const navigate = useNavigate();
     const param = useParams();
     const [service,setService] = useState();
+    const [typeService,setTypeService] = useState();
+
+    const getById = async () => {
+        const res =await  serviceSer.findById(param.id)
+        setService(res)
+    }
+    useEffect(() => {
+        getById();
+    },[])
+
 
     useEffect(() => {
-        const fetchApi = async () =>{
-            const result = await  axios.put(`http://localhost:8080/services/${param.id}`)
-            setService(result.data);
+        const typeService = async ()=> {
+            const res = await serviceSer.getAllType();
+            setTypeService(res);
         }
-        fetchApi();
+       typeService();
     },[param.id])
     if(!service){
         return null
     }
+    console.log(service)
     return (
         <>
             <Formik initialValues={{
                 id: service?.id,
-                type: service?.type,
+                typeId: service?.typeId,
                 name: service?.name,
                 area: service?.area,
                 rentalCost: service?.rentalCost,
@@ -44,7 +55,10 @@ export function UpdateSer() {
             }}
                     onSubmit={(values) => {
                         const update = async () => {
-                            await axios.put(`http://localhost:8080/service/${values.id}`, values)
+
+                            await serviceSer.updateService({
+                                ...values,typeId :  +values.typeId
+                            })
                             navigate("/")
                         }
                         update();
@@ -63,11 +77,15 @@ export function UpdateSer() {
 
                                     <div className=" mt-4 inputs">
                                         <label>Type</label>
-                                        <Field as="select" name="type" className="form-control"
+                                        <Field as="select" name="typeId" className="form-control"
                                                data-error="Please specify your need.">
-                                            <option value="room">Room</option>
-                                            <option value="house">House</option>
-                                            <option value="villa">Villa</option>
+                                            {
+                                                typeService &&    typeService.map((type)=>(
+                                                    <option key={type.id} value={type.id}  >
+                                                        {type.nameType}
+                                                    </option>
+                                                ))
+                                            }
                                         </Field>
                                     </div>
                                     <div className=" mt-4 inputs">

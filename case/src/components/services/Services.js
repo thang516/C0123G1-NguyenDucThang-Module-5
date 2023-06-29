@@ -1,16 +1,14 @@
 import './services.css'
-// import React, {useEffect, useState} from "react";
-import {Link} from 'react-router-dom'
 import {useNavigate} from "react-router-dom"
 import React, {useEffect, useState} from "react";
-import axios from "axios";
 import sweat from "sweetalert2"
 import * as serviceSer from "../service/ServicesSer"
+import ReactPaginate from 'react-paginate';
 
 export function Services() {
     const [service, setService] = useState([])
     const [typeService, setTypeService] = useState();
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         findAll();
@@ -51,44 +49,79 @@ export function Services() {
     }
 
 
-    const navigate = useNavigate();
+    function Items({ currentItems }) {
+        return (
+            <>
+                {currentItems &&
+                currentItems.map((service) => (
+                    <div className="col-md-4">
+                        <div className="card">
+                            <img
+                                src={service.img}
+                                className="card-img-top"
+                                alt="..."
+                            />
+                            <div className="card-body">
+                                <h5 className="card-title">{service.name}</h5>
+                                <p className="card-text">
+                                    <p>{service.rentalCost}</p>
+                                </p>
+                            </div>
+                            <div className="card-footer">
+                                <button
+                                    className="btn btn-success" style={{backgroundColor: "#56cc9d"}}
+                                    onClick={() => navigate('/update/' + service.id)}> Edit
+                                </button>
+
+                                <button
+                                    onClick={() => deleteService(service.id, service.name)}
+                                    className="btn btn-success" type="button"
+                                    style={{backgroundColor: "#ff0039"}}>
+                                    Delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </>
+        );
+    }
+
+    function PaginatedItems({ itemsPerPage , list}) {
+        const [itemOffset, setItemOffset] = useState(0);
+        const endOffset = itemOffset + itemsPerPage;
+        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+        const currentItems = list.slice(itemOffset, endOffset);
+        const pageCount = Math.ceil(list.length / itemsPerPage);
+        const handlePageClick = (event) => {
+            const newOffset = (event.selected * itemsPerPage) % list.length;
+            setItemOffset(newOffset);
+        };
+
+        return (
+            <>
+                <Items currentItems={currentItems} />
+                <div className="pagination-card">
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel=">"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel="<"
+                        renderOnZeroPageCount={null}
+                    />
+                </div>
+            </>
+        );
+    }
+
     return (
         <>
             <div className="card-container">
                 <div className="card-group">
                     <div className="row">
-                        {
-                            service.map((services) => (
-                                <div className="col-md-4">
-                                    <div className="card">
-                                        <img
-                                            src={services.img}
-                                            className="card-img-top"
-                                            alt="..."
-                                        />
-                                        <div className="card-body">
-                                            <h5 className="card-title">{services.name}</h5>
-                                            <p className="card-text">
-                                                <p>{services.rentalCost}</p>
-                                            </p>
-                                        </div>
-                                        <div className="card-footer">
-                                            <button
-                                                className="btn btn-success" style={{backgroundColor: "#56cc9d"}}
-                                                onClick={() => navigate('/update/' + services.id)}> Edit
-                                            </button>
-
-                                            <button
-                                                onClick={() => deleteService(services.id, services.name)}
-                                                className="btn btn-success" type="button"
-                                                style={{backgroundColor: "#ff0039"}}>
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
+                        <PaginatedItems itemsPerPage={6} list={service}/>
                     </div>
                 </div>
             </div>
@@ -408,55 +441,6 @@ export function Services() {
             {/*        </div>*/}
             {/*    </div>*/}
             {/*</div>*/}
-
-
-            <div className="page-content page-container" id="page-content">
-                <div className="padding">
-                    <div className="pagination-container row container d-flex justify-content-center">
-                        <div className="col-md-4 col-sm-6 grid-margin stretch-card">
-                            <div className="card">
-                                <div className="card-body">
-                                    <nav>
-                                        <ul className="pagination d-flex justify-content-center flex-wrap pagination-rounded-flat pagination-success">
-                                            <li className="page-item">
-                                                    <span className="page-link" data-abc="true">
-                                                        <i className="fa fa-angle-left"/>
-                                                    </span>
-                                            </li>
-                                            <li className="page-item active">
-                                                <a className="page-link" href="#" data-abc="true">
-                                                    1
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a className="page-link" href="#" data-abc="true">
-                                                    2
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a className="page-link" href="#" data-abc="true">
-                                                    3
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a className="page-link" href="#" data-abc="true">
-                                                    4
-                                                </a>
-                                            </li>
-                                            <li className="page-item">
-                                                <a className="page-link" href="#" data-abc="true">
-                                                    <i className="fa fa-angle-right"/>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
 
         </>
     )

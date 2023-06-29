@@ -1,13 +1,23 @@
 import './CreateContract.css'
 import {useNavigate} from "react-router-dom";
 import Layout from "../views/Layout";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Field, Form, Formik} from "formik";
-import axios from "axios";
+
 import {toast} from "react-toastify";
 import {LineWave} from "react-loader-spinner";
+import * as serviceContract from "../service/ContractService"
+import * as serviceCustomer from "../service/CustomerService"
 export function CreateContract() {
 const navigate = useNavigate();
+    const [customer,setCustomer] = useState();
+    useEffect(() =>{
+        const customerList = async () => {
+            const res = await serviceCustomer.getAll();
+            setCustomer(res)
+        }
+        customerList();
+    },[])
 
     return(
         <Layout>
@@ -15,6 +25,7 @@ const navigate = useNavigate();
         <Formik initialValues={{
            id : '',
             contractCode : "",
+            customerList: "",
             dayStart: "",
             endDay: "",
             deposit: 0,
@@ -23,7 +34,7 @@ const navigate = useNavigate();
                 onSubmit={(values ,{setSubmitting}) => {
             setSubmitting(false);
             const create = async () => {
-                await  axios.post("http://localhost:8080/contract",values)
+                await  serviceContract.save(values)
                 toast(`Contract ${values.contractCode} Create Successfully`)
                 navigate("/contract")
             }
@@ -40,27 +51,40 @@ const navigate = useNavigate();
                                         <h1>Create Contract</h1>
                                     </div>
                                     <Form>
-                                        <div className="mt-4 inputs"><span>Contract Code</span>
+                                        <div className="mt-4 inputs"><label>Contract Code</label>
                                             <Field type="text"  name="contractCode" className="form-control"/>
                                         </div>
+                                        <div className="mt-4 inputs"><label>Customer List</label>
+                                            <Field as="select"   name="customerList" style={{width: "100%", height: "40px"}}>>
+                                                {
+                                                    customer &&  customer.map((cus) => (
+                                                       <option key={cus.id} value={cus.id}>
+                                                           {cus.name}
+                                                       </option>
+                                                   ))
+                                                }
 
-                                        <div className="mt-2 inputs"><span>Date Start</span>
+                                                </Field>
+
+                                        </div>
+
+                                        <div className="mt-2 inputs"><label>Date Start</label>
                                             <Field type="date" name="dayStart" className="form-control"
                                             />
                                         </div>
 
 
-                                        <div className="mt-2 inputs"><span>End Date</span>
+                                        <div className="mt-2 inputs"><label>End Date</label>
                                             <Field type="date" name="endDay" className="form-control"/>
                                         </div>
 
 
-                                        <div className="mt-2 inputs"><span>Advance Amount</span>
+                                        <div className="mt-2 inputs"><label>Advance Amount</label>
                                             <Field className="form-control" name="deposit" type="number"/>
                                         </div>
 
 
-                                        <div className="mt-2 inputs"><span>Total Money Payment</span>
+                                        <div className="mt-2 inputs"><label>Total Money Payment</label>
                                             <Field className="form-control" name="totalMoney" type="number"/>
 
                                         </div>

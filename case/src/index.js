@@ -23,6 +23,7 @@ import {UpdateRoom} from "./components/services/UpdateRoom";
 import {Facility} from "./components/services/Facility";
 import {CreateSer} from "./components/services/CreateSer";
 import {UpdateSer} from "./components/services/UpdateSer";
+import {UpdateContract} from "./components/contract/UpdateContract";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
     {
         path: "/update/:id",
         element: <UpdateSer/>
+    },
+    {
+        path: "/updateContract/:id",
+        element: <UpdateContract/>
     },
     {
         path: "/contract",
