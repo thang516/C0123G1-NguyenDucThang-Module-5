@@ -50,9 +50,7 @@ export function Header() {
                                     <a className="dropdown-item" href="/customer">
                                         Customer List
                                     </a>
-                                    <a className="dropdown-item" href="/updateCustomer">
-                                        Update Customer
-                                    </a>
+
                                     <a className="dropdown-item" href="/createCustomer">
                                         Create Customer
                                     </a>
@@ -85,18 +83,10 @@ export function Header() {
                                     Services
                                 </a>
                                 <div className="dropdown-menu">
-                                    <a className="dropdown-item" href="/createService">
-                                        Create Villa
+                                    <a className="dropdown-item" href="/createAllService">
+                                        Create Service
                                     </a>
-                                    <a className="dropdown-item" href="/createHouse">
-                                        Create House
-                                    </a>
-                                    <a className="dropdown-item" href="/createRoom">
-                                        Create Room
-                                    </a>
-                                    <a className="dropdown-item" href="/facility">
-                                        Facility
-                                    </a>
+
                                 </div>
                             </li>
 

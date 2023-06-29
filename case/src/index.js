@@ -21,6 +21,8 @@ import {CreateRoom} from "./components/services/CreateRoom";
 import {UpdateHouse} from "./components/services/UpdateHouse";
 import {UpdateRoom} from "./components/services/UpdateRoom";
 import {Facility} from "./components/services/Facility";
+import {CreateSer} from "./components/services/CreateSer";
+import {UpdateSer} from "./components/services/UpdateSer";
 
 const router = createBrowserRouter([
     {
@@ -36,8 +38,12 @@ const router = createBrowserRouter([
         element: <CreateCustomer/>
     },
     {
-        path: "/updateCustomer",
+        path: "/updateCustomer/:id",
         element: <UpdateCustomer/>
+    },
+    {
+        path: "/update/:id",
+        element: <UpdateSer/>
     },
     {
         path: "/contract",
@@ -52,26 +58,6 @@ const router = createBrowserRouter([
         element: <CreateService/>
     },
     {
-        path: "/updateService",
-        element: <UpdateService/>
-    },
-    {
-        path: "/createHouse",
-        element: <CreateHouse/>
-    },
-    {
-        path: "/createRoom",
-        element: <CreateRoom/>
-    },
-    {
-        path: "/updateHouse",
-        element: <UpdateHouse/>
-    },
-    {
-        path: "/updateRoom",
-        element: <UpdateRoom/>
-    },
-    {
         path: "/home",
         element: <Home/>
     },
@@ -79,19 +65,19 @@ const router = createBrowserRouter([
         path: "/facility",
         element: <Facility/>
     },
-    // {
-    //     path: "/updateRoom",
-    //     element: <UpdateRoom/>
-    // },
+    {
+        path: "/createAllService",
+        element: <CreateSer/>
+    },
+
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-      <RouterProvider router={router}>
-    <App />
-      </RouterProvider>
-  </React.StrictMode>
+        <RouterProvider router={router}>
+            <App/>
+        </RouterProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

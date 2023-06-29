@@ -1,0 +1,28 @@
+{
+  "covids": [
+    {
+      "id": 1,
+      "date": "2020-01-23",
+      "confirmed": 0,
+      "active": 0,
+      "recovered": 0,
+      "deaths": 0
+    },
+    {
+      "id": 2,
+      "date": "2020-02-23",
+      "confirmed": 1,
+      "active": 2,
+      "recovered": 4,
+      "deaths": 0
+    },
+    {
+      "id": 3,
+      "date": "2020-01-25",
+      "confirmed": 0,
+      "active": 0,
+      "recovered": 0,
+      "deaths": 5
+    }
+  ]
+}

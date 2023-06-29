@@ -1,59 +1,59 @@
 {
   "customer": [
     {
-      "id": 1,
-      "name": "Nguyễn Đức Thắng",
-      "type": "Diamond",
-      "dayOfBirth": "05/06/2001",
+      "name": "Nguyễn Đức Thắnggggg",
+      "typeCustomerId": 1,
+      "dayOfBirth": "2023-06-22",
       "gender": "Nam",
       "identityCard": "201854945",
-      "phoneNumber": "0782391943",
+      "phoneNumber": 7823919433,
       "email": "nguyenthangfa2001@gmail.com",
-      "address": "Hoa Xuan,Cam Le,Da Nang"
+      "address": "Hoa Xuan,Cam Le,Da Nang",
+      "id": 1
     },
     {
-      "id": 2,
       "name": "Đinh Nguyên Thảo",
-      "type": "Diamond",
-      "dayOfBirth": "11/11/2001",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2023-06-14",
       "gender": "Nữ",
       "identityCard": "201899999",
       "phoneNumber": "0909129129",
       "email": "nguyenthao@gmail.com",
-      "address": "Da Nang"
+      "address": "Da Nang",
+      "id": 2
     },
     {
-      "name": "Đinh Nguyen",
-      "type": "Silver",
-      "dayOfBirth": "2023-06-15",
-      "gender": "FeMale",
-      "identityCard": 2012121214,
-      "phoneNumber": 782391943,
-      "email": "thaodinh@gmail.com",
-      "address": "Đà Nẵng",
-      "id": 7
-    },
-    {
+      "id": 3,
       "name": "Nguyen Huy Hoang",
-      "type": "Platinum",
-      "dayOfBirth": "2023-06-14",
-      "gender": "",
-      "identityCard": 201854945,
+      "typeCustomerId": 3,
+      "dayOfBirth": "2023-06-07",
+      "gender": "FeMale",
+      "identityCard": 45,
       "phoneNumber": 909123837,
       "email": "nguyenthangfa2001@gmail.com",
-      "address": "Đà Nẵng",
-      "id": 8
+      "address": "Đà Nẵng"
+    }
+  ],
+  "typeCustomer": [
+    {
+      "id": 1,
+      "nameType": "Diamond"
     },
     {
-      "name": "Nguyễn Đức Thắng",
-      "type": "Diamond",
-      "dayOfBirth": "2023-07-01",
-      "gender": "Male",
-      "identityCard": 201854945,
-      "phoneNumber": 782391943,
-      "email": "nguyenthangfa2002@gmail.com",
-      "address": "Đà Nẵng",
-      "id": 9
+      "id": 2,
+      "nameType": "Platinum"
+    },
+    {
+      "id": 3,
+      "nameType": "Gold"
+    },
+    {
+      "id": 4,
+      "nameType": "silver"
+    },
+    {
+      "id": 5,
+      "nameType": "Member"
     }
   ],
   "contract": [
@@ -97,7 +97,7 @@
   "services": [
     {
       "id": 1,
-      "type": "Room",
+      "typeId": 1,
       "name": "Twin",
       "area": 50,
       "rentalCost": "100 $",
@@ -107,27 +107,20 @@
     },
     {
       "id": 2,
-      "type": "Room",
+      "typeId": 1,
       "name": "Deluxe",
-      "area": 100,
-      "rentalCost": "120 $",
-      "maxPeople": "2",
+      "area": 50,
+      "rentalCost": "100 $",
+      "maxPeople": "3",
       "rentalType": "Day",
       "img": "https://booking-static.vinpearl.com/room_types/363438a81590466697fafaad3eb2ac97_POP_0790.jpg"
     },
     {
-      "id": 3,
-      "type": "Room",
-      "name": "Bungalow",
-      "area": 100,
-      "rentalCost": "150 $",
-      "maxPeople": "4",
-      "rentalType": "Day",
-      "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/442448238.jpg?k=a8e54edc723efd520c7af73f0ab070e973ceb5e1b158b55a59ebad9899455e67&o=&hp=1"
+      "id": 3
     },
     {
       "id": 4,
-      "type": "House",
+      "typeId": 2,
       "name": "House Luxury",
       "area": 100,
       "rentalCost": "300 $",
@@ -137,17 +130,17 @@
     },
     {
       "id": 5,
-      "type": "House",
+      "typeId": 2,
       "name": "House Vintage",
-      "area": 100,
-      "rentalCost": "400$",
-      "maxPeople": "6",
+      "area": 120,
+      "rentalCost": "150 $",
+      "maxPeople": "4",
       "rentalType": "Day",
       "img": "https://ik.imagekit.io/tvlk/blog/2019/12/nhung-resort-dep-o-phu-quoc-The-Garden-House-Phu-Quoc-2.jpg?tr=dpr-2,w-675"
     },
     {
       "id": 6,
-      "type": "House",
+      "typeId": 2,
       "name": "Chilling House",
       "area": 100,
       "rentalCost": "500 $",
@@ -157,7 +150,7 @@
     },
     {
       "id": 7,
-      "type": "House",
+      "typeId": 2,
       "name": "Villa",
       "area": 100,
       "rentalCost": "800 $",
@@ -167,7 +160,7 @@
     },
     {
       "id": 8,
-      "type": "Villa",
+      "typeId": 2,
       "name": "Villa Relax",
       "area": 200,
       "rentalCost": "1000 $",
@@ -177,13 +170,42 @@
     },
     {
       "id": 9,
-      "type": "Villa",
+      "typeId": 2,
       "name": "Villa Luxury",
       "area": 100,
       "rentalCost": "1500 $",
       "maxPeople": "10",
       "rentalType": "Day",
       "img": "https://cf.bstatic.com/xdata/images/hotel/max1280x900/429302385.jpg?k=4a999e5f7efce5f168c08a659ce858055b7796be9fa0fbd375228eb692f803d7&o=&hp=1"
+    },
+    {
+      "id": 10,
+      "typeId": 2,
+      "name": "Nguyen Huy Hoang",
+      "area": 200,
+      "rentalCost": 1111,
+      "maxPeople": "111",
+      "rentalType": "Month",
+      "descriptionOtherAmenities": "111",
+      "roomStandard": "111",
+      "floors": "111",
+      "areaSwimming": "111",
+      "freeServiceIncluded": "",
+      "img": "https://th.bing.com/th/id/R.77f7eb755ad3480164e127a38871795f?rik=NkuaVH5mZUQmtQ&pid=ImgRaw&r=0"
+    }
+  ],
+  "typeService": [
+    {
+      "id": 1,
+      "nameType": "House"
+    },
+    {
+      "id": 2,
+      "nameType": "Room"
+    },
+    {
+      "id": 3,
+      "nameType": "Villa"
     }
   ]
 }

@@ -5,35 +5,40 @@ import axios from "axios";
 import sweat from "sweetalert2"
 import {toast, ToastContainer} from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
-
+import {useNavigate} from "react-router-dom";
+import * as customerService from "../service/CustomerService"
+import {getAllTypeCustomer} from "../service/CustomerService";
 export function Customer() {
+    const navigate = useNavigate()
     const [customers,setCustomer] = useState([])
-    const  fetchApi = async () => {
-        try {
-            const result = await  axios.get('http://localhost:8080/customer')
-            setCustomer(result.data)
+    const [typeCustomer,setTypeCustomer] = useState([])
 
-        }catch (e) {
-            console.log(e)
-        }
-    }
     useEffect(()=> {
-
-        fetchApi()
+        getAllList();
+        typeCustomerList()
     },[])
+    const typeCustomerList = async () =>{
+        const res = await  customerService.getAllTypeCustomer();
+        setTypeCustomer(res)
+    }
+
+    console.log(typeCustomer);
+
+    const  getAllList = async () => {
+            const result = await customerService.getAll()
+            setCustomer(result)
+
+    }
 
     const deleteById = async (id)=>{
-        try{
-            await  axios.delete("http://localhost:8080/customer/"+id)
-            sweat.fire({
-                icon:"success",
-                title :"SUCCESSFULL",
-                timer :"2000"
+            await  customerService.deleteCustomer(id);
+             sweat.fire({
+                icon: "success",
+                title: "SUCCESSFULL",
+                timer: "2000"
             })
-        }catch (e) {
-            console.log(e)
-        }
-        fetchApi()
+
+        getAllList()
     }
     function deleteCustomer(id,name) {
         sweat.fire({
@@ -75,7 +80,7 @@ export function Customer() {
                         <tr key={customer.id}>
                             <td>{customer.id}</td>
                             <td>{customer.name}</td>
-                            <td>{customer.type}</td>
+                            <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>
                             <td>{customer.dayOfBirth}</td>
                             <td>{customer.gender}</td>
                             <td>{customer.identityCard}</td>
@@ -83,7 +88,8 @@ export function Customer() {
                             <td>{customer.email}</td>
                             <td>{customer.address}</td>
                             <td>
-                                <button className="btn btn-success" style={{backgroundColor: "#149570"}}>Edit</button>
+                                <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
+
                                 <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
                                      onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
                                 </button>
@@ -129,26 +135,7 @@ export function Customer() {
             <div>
 
 
-                <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel"
-                     aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
-                                <button type="button" className="btn-close" data-bs-dismiss="modal"
-    aria-label="Close"/>
-                            </div>
-                            <div className="modal-body">
-                                Are you sure you deleted it?
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close
-                                </button>
-                                <button type="button" className="btn btn-primary">Save changes</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <ToastContainer
                 position="top-center"

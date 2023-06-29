@@ -1,6 +1,7 @@
 import {Header} from "../header/Header";
 import {Services} from "../services/Services";
 import {Footer} from "../footer/Footer";
+import {CreateSer} from "../services/CreateSer";
 
 function Layout ({children}) {
     return (
@@ -8,6 +9,7 @@ function Layout ({children}) {
             <Header/>
             {children}
             <Footer/>
+
         </>
     );
 }
