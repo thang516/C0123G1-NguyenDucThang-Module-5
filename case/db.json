@@ -32,6 +32,28 @@
       "phoneNumber": 909123837,
       "email": "nguyenthangfa2001@gmail.com",
       "address": "Đà Nẵng"
+    },
+    {
+      "name": "Hoa Quoc",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2023-06-24",
+      "gender": "FeMale",
+      "identityCard": 12345678,
+      "phoneNumber": 909000453,
+      "email": "uthoa@gmail.com",
+      "address": "",
+      "id": 4
+    },
+    {
+      "name": "Nguyen Huy Hoang",
+      "typeCustomerId": 3,
+      "dayOfBirth": "2023-06-23",
+      "gender": "FeMale",
+      "identityCard": 123,
+      "phoneNumber": 909123837,
+      "email": "nguyenthangfa2001@gmail.com",
+      "address": "Đà Nẵng",
+      "id": 5
     }
   ],
   "typeCustomer": [
@@ -72,6 +94,24 @@
       "endDay": "27/06/2023",
       "deposit": 400,
       "totalMoney": 1500
+    },
+    {
+      "id": 3,
+      "contractCode": "ĐInh Thảo",
+      "customerList": "2",
+      "dayStart": "2023-06-15",
+      "endDay": "2023-06-24",
+      "deposit": 122,
+      "totalMoney": 122
+    },
+    {
+      "id": 4,
+      "contractCode": "Trương An",
+      "customerList": "",
+      "dayStart": "2023-06-29",
+      "endDay": "2023-06-24",
+      "deposit": 1233,
+      "totalMoney": 1255
     }
   ],
   "facility": [

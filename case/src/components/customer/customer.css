@@ -58,3 +58,33 @@ a {
 .card-footer{
     text-align: end;
 }
+
+.card-container .card-group .card{
+    border-radius : 0;
+}
+
+.pagination-card {
+    display: flex;
+    justify-content: flex-end;
+}
+.pagination-card ul{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.pagination-card ul li{
+    width: 35px;
+    height: 35px;
+    background: #198754;
+    border-radius: 999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pagination-card ul li a{
+    background-color: transparent;
+    color: white;
+    padding: 7px 10px;
+}
+.pagination-card ul .previous, .pagination-card ul .next
+{}
