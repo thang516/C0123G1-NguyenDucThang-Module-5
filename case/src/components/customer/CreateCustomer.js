@@ -38,7 +38,11 @@ export function CreateCustomer() {
                 }}
                         validationSchema={Yup.object({
                             name: Yup.string().required(),
-                            identityCard: Yup.string().required()
+                            gender: Yup.string().required(),
+                            identityCard: Yup.string().required().matches(/^[0-9]{9}$/),
+                            phoneNumber: Yup.string().required(),
+                            email: Yup.string().required().matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
+                            address: Yup.string().required()
 
                         })}
                         onSubmit={(values, {setSubmitting}) => {
@@ -89,34 +93,39 @@ export function CreateCustomer() {
 
                                                 <div className="mt-2 inputs"><label>Day Of Birth</label>
                                                     <Field type="date" name='dayOfBirth' className="form-control"/>
+
                                                 </div>
                                                 <div className="mt-2 inputs"><label>Gender</label>
-                                                    <Field as="select" name="gender"
-                                                           style={{width: "100%", height: "40px"}}>
+                                                    <Field as="select" name="gender" defaultValue=""
+                                                           style={{width: "100%", height: "40px"}} >
+                                                        <option value="">Select</option>
                                                         <option value="Male">Male</option>
                                                         <option value="FeMale">FeMale</option>
                                                         <option value="other">other</option>
                                                     </Field>
+                                                    <ErrorMessage name='gender' component='span' className='form-err'/>
                                                 </div>
 
 
                                                 <div className="mt-2 inputs"><label>Identity Card</label>
-                                                    <Field name='identityCard' className="form-control" type="number"/>
+                                                    <Field name='identityCard' className="form-control" type="text"/>
                                                     <ErrorMessage name='identityCard' component='span'
                                                                   className='form-err'/>
                                                 </div>
 
                                                 <div className="mt-2 inputs"><label>Phone Number</label>
-                                                    <Field name='phoneNumber' className="form-control" type="number"/>
+                                                    <Field name='phoneNumber' className="form-control" type="text"/>
+                                                    <ErrorMessage name='phoneNumber' component='span' className='form-err'/>
                                                 </div>
 
 
                                                 <div className="mt-2 inputs"><label>Email</label>
                                                     <Field name='email' className="form-control" type="text"/>
+                                                    <ErrorMessage name='email' component='span' className='form-err'/>
                                                 </div>
                                                 <div className="mt-2 inputs"><label>Address</label>
                                                     <Field name='address' className="form-control" type="text"/>
-
+                                                    <ErrorMessage name='address' component='span' className='form-err'/>
                                                 </div>
                                                 {
                                                     isSubmitting ?
@@ -139,15 +148,17 @@ export function CreateCustomer() {
                                                                     className=" btn btn-success integration">
                                                                 <b>Create</b>
                                                             </button>
-                                                            <button type="submit"
-                                                                    className=" btn btn-success integration"
-                                                                    onClick={() => navigate('/customer')}
-                                                                    style={{backgroundColor: "black"}}>
-                                                                <b>Back</b>
-                                                            </button>
                                                         </div>
-                                                }
 
+                                                }
+                                                <div className="text-center mt-4 btn-group">
+                                                    <button type="submit"
+                                                            className=" btn btn-success integration"
+                                                            onClick={() => navigate('/customer')}
+                                                            style={{backgroundColor: "black"}}>
+                                                        <b>Back</b>
+                                                    </button>
+                                                </div>
                                             </Form>
 
                                         </div>

@@ -138,35 +138,37 @@ export function CreateSer() {
 
                                             </div>
                                             <div className="mt-4 ">
-                                                <label>Description Of Other Amenities </label>
+                                                <label>Description Of Other Amenities (*House,Villa) </label>
                                                 <Field
                                                     type="text" className="form-control"
                                                     name="descriptionOtherAmenities"/>
                                             </div>
                                             <div className="row mt-4  ">
                                                 <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
-                                                    <label>Floor</label>
+                                                    <label>Floor (*Villa)</label>
                                                     <Field
                                                         type="text"
                                                         name="floors" className="form-control"/>
                                                 </div>
                                                 <div className="col-md-6 form-group mt-3 mt-md-0"
                                                      style={{paddingRight: "0"}}>
-                                                    <label> Room Standard</label>
+                                                    <label> Room Standard (*House,Villa)</label>
                                                     <Field type="text" className="form-control" name="roomStandard"/>
                                                 </div>
                                             </div>
                                             <div className="row mt-4  ">
                                                 <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
-                                                    <label>Area Swimming pool</label>
+                                                    <label>Area Swimming pool (*House,Villa)</label>
                                                     <Field
                                                         type="text" name="areaSwimming" className="form-control"/>
                                                 </div>
                                                 <div className="col-md-6 form-group mt-3 mt-md-0"
                                                      style={{paddingRight: "0"}}>
-                                                    <label>Free Service Included</label>
-                                                    <input type="text" className="form-control"
-                                                           name="freeServiceIncluded"/>
+                                                    <label>Free Service Included (*Room)</label>
+                                                    <Field   className="form-control"
+                                                           name="freeServiceIncluded">
+                                                    </Field>
+
                                                 </div>
                                             </div>
                                             <div className=" mt-4 inputs">
@@ -189,13 +191,20 @@ export function CreateSer() {
                                                         lastLineColor=""
                                                     />
                                                     :
-                                                    <div className="text-center m-auto mt-4">
+                                                    <div className="text-center mt-4 btn-group">
                                                         <button type="submit" className=" btn btn-success">
                                                             <b className="text-center">Create</b>
                                                         </button>
                                                     </div>
                                             }
-
+                                            <div className="text-center mt-4 btn-group">
+                                                <button type="submit"
+                                                        className=" btn btn-success integration"
+                                                        onClick={() => navigate('/customer')}
+                                                        style={{backgroundColor: "black"}}>
+                                                    <b>Back</b>
+                                                </button>
+                                            </div>
 
                                         </Form>
                                     </div>

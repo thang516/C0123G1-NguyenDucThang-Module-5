@@ -124,14 +124,17 @@ export function UpdateCustomer() {
                                                         className=" btn btn-success integration">
                                                     <b>Update</b>
                                                 </button>
-                                                <button type="submit"
-                                                        className=" btn btn-success integration"
-                                                        onClick={() => navigate('/customer')}
-                                                        style={{backgroundColor: "black"}}>
-                                                    <b>Back</b>
-                                                </button>
+
                                             </div>
                                         </Form>
+                                        <div className="text-center mt-4 btn-group">
+                                        <button type="submit"
+                                                className=" btn btn-success integration"
+                                                onClick={() => navigate('/customer')}
+                                                style={{backgroundColor: "black"}}>
+                                            <b>Back</b>
+                                        </button>
+                                        </div>
 
                                     </div>
 

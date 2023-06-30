@@ -97,11 +97,10 @@ export function Services() {
             const newOffset = (event.selected * itemsPerPage) % list.length;
             setItemOffset(newOffset);
         };
-
         return (
             <>
                 <Items currentItems={currentItems} />
-                <div className="pagination-card">
+                <div className="pagination-card" style={{marginTop : "40px"}}>
                     <ReactPaginate
                         breakLabel="..."
                         nextLabel=">"

@@ -6,6 +6,9 @@ import sweat from "sweetalert2"
 import * as serviceContract from "../service/ContractService"
 import {useNavigate} from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import {Field, Form, Formik} from "formik";
+import * as customerService from "../service/CustomerService";
+import * as contractService from "../service/ContractService";
 
 export function Contract() {
     const [contract, setContract] = useState([])
@@ -57,8 +60,8 @@ const navigate= useNavigate();
                                 <td> {contracts.contractCode}</td>
                                 <td>{contracts.dayStart} </td>
                                 <td>{contracts.endDay} </td>
-                                <td> {contracts.deposit}</td>
-                                <td>{contracts.totalMoney} </td>
+                                <td> ${contracts.deposit}</td>
+                                <td> ${contracts.total}</td>
                                 <td>
                                     <button className="btn btn-success" style={{backgroundColor: "#149570"}} onClick={()=>navigate("/updateContract/"+contracts.id)}>Edit
                                     </button>
@@ -109,6 +112,32 @@ const navigate= useNavigate();
 
         <Layout>
             <>
+
+                <Formik  initialValues={{
+                    deposit : ''
+                }} onSubmit={ (values) => {
+                    const search = async () =>{
+                        const  res =   await  contractService.findByDeposit(values.deposit)
+                        setContract(res)
+                    }
+                    search();
+                }}>
+
+                    <Form className="d-flex" style={{    marginTop: "20px",  marginBottom: "20px",   justifyContent: "flex-end"}}>
+                        <Field
+                            style={{backgroundColor: "white",width:" 20vw",marginRight:"20px"}}
+                            className="form-control"      type="text"     placeholder="Search By Deposit"   name='deposit' />
+                            
+                        <button  className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black",marginRight :"20px"}}       type="submit"    >
+                            Search
+                        </button>
+                        <button   className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black"}} type={"reset"} >
+                            Back
+                        </button>
+                    </Form>
+
+
+                </Formik>
                 <div style={{textAlign: "center"}}>
                     <h1>Contract List</h1>
 
@@ -121,7 +150,7 @@ const navigate= useNavigate();
                         <th>Day Start</th>
                         <th>End Day</th>
                         <th>Deposit</th>
-                        <th>Total Money Payment</th>
+                        <th>Total Money</th>
                         <th>Function</th>
 
 

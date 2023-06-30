@@ -8,21 +8,31 @@ import {toast} from "react-toastify";
 import {LineWave} from "react-loader-spinner";
 import * as serviceContract from "../service/ContractService"
 import * as serviceCustomer from "../service/CustomerService"
+import * as serviceSer from "../service/ServicesSer"
 import {useParams} from "react-router-dom";
 export function UpdateContract() {
     const navigate = useNavigate();
     const [customer,setCustomer] = useState();
     const [contract, setContract] = useState();
+    const [service,setService] = useState();
+
     const param = useParams();
     const findById = async () =>{
         const  res = await serviceContract.findById(param.id)
         setContract(res);
     }
+    const customerList = async () => {
+        const res = await serviceCustomer.getAll();
+        setCustomer(res)
+    }
+
+    const serviceList = async () =>{
+        const res = await serviceSer.getAll();
+        setService(res);
+    }
+
     useEffect(() =>{
-        const customerList = async () => {
-            const res = await serviceCustomer.getAll();
-            setCustomer(res)
-        }
+        serviceList()
         customerList();
         findById();
     },[])
@@ -38,6 +48,7 @@ export function UpdateContract() {
                     id : contract?.id,
                     contractCode : contract?.contractCode,
                     customerList: customer?.customerList,
+                    service : service?.service,
                     dayStart: contract?.dayStart,
                     endDay: contract?.endDay,
                     deposit: contract?.deposit,
@@ -45,12 +56,12 @@ export function UpdateContract() {
                 }}
                         onSubmit={(values ,{setSubmitting}) => {
                             setSubmitting(false);
-                            const create = async () => {
+                            const update = async () => {
                                 await  serviceContract.updateContract(values)
                                 toast(`Contract ${values.contractCode} update Successfully`)
                                 navigate("/contract")
                             }
-                            create();
+                            update();
                         } }>
                     {
                         ({isSubmitting}) =>(
@@ -70,8 +81,21 @@ export function UpdateContract() {
                                                     <Field as="select"   name="customerList" style={{width: "100%", height: "40px"}}>>
                                                         {
                                                             customer &&  customer.map((cus) => (
-                                                                <option key={cus.id} value={cus.id}>
+                                                                <option key={cus.id} value={cus.name}>
                                                                     {cus.name}
+                                                                </option>
+                                                            ))
+                                                        }
+
+                                                    </Field>
+
+                                                </div>
+                                                <div className="mt-4 inputs"><label>Name Service</label>
+                                                    <Field as="select"   name="serviceList" style={{width: "100%", height: "40px"}}>>
+                                                        {
+                                                            service &&  service.map((typ) => (
+                                                                <option key={typ.id} value={typ.nameType}>
+                                                                    {typ.name}
                                                                 </option>
                                                             ))
                                                         }
@@ -96,10 +120,7 @@ export function UpdateContract() {
                                                 </div>
 
 
-                                                <div className="mt-2 inputs"><label>Total Money Payment</label>
-                                                    <Field className="form-control" name="totalMoney" type="number"/>
 
-                                                </div>
                                                 {
                                                     isSubmitting ?
                                                         <LineWave

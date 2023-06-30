@@ -91,21 +91,7 @@ export function Header() {
                             </li>
 
                         </ul>
-                        <form className="d-flex">
-                            <input
-                                style={{backgroundColor: "white"}}
-                                className="form-control me-sm-2"
-                                type="text"
-                                placeholder="Search"
-                            />
-                            <button
-                                className="btn btn-secondary my-2 my-sm-0"
-                                style={{backgroundColor: "black"}}
-                                type="submit"
-                            >
-                                Search
-                            </button>
-                        </form>
+
                     </div>
                 </div>
             </nav>

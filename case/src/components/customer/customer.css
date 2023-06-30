@@ -58,7 +58,6 @@ a {
 .card-footer{
     text-align: end;
 }
-
 .card-container .card-group .card{
     border-radius : 0;
 }
@@ -86,5 +85,6 @@ a {
     color: white;
     padding: 7px 10px;
 }
-.pagination-card ul .previous, .pagination-card ul .next
-{}
+.pagination-card ul .previous, .pagination-card ul .next {
+
+}

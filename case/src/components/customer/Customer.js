@@ -9,6 +9,7 @@ import {useNavigate} from "react-router-dom";
 import * as customerService from "../service/CustomerService"
 import {getAllTypeCustomer} from "../service/CustomerService";
 import ReactPaginate from "react-paginate";
+import {Field, Form, Formik} from "formik";
 export function Customer() {
     const navigate = useNavigate()
     const [customers,setCustomer] = useState([])
@@ -58,28 +59,30 @@ export function Customer() {
     function Items({ currentItems }) {
         return (
             <>
+
                 {currentItems &&
                 currentItems.map((customer) => (
 
-                        <tr key={customer.id}>
-                            <td>{customer.id}</td>
-                            <td>{customer.name}</td>
-                            <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>
-                            <td>{customer.dayOfBirth}</td>
-                            <td>{customer.gender}</td>
-                            <td>{customer.identityCard}</td>
-                            <td>{customer.phoneNumber}</td>
-                            <td>{customer.email}</td>
-                            <td>{customer.address}</td>
-                            <td>
-                                <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
+                            <tr key={customer.id}>
+                                <td>{customer.id}</td>
+                                <td>{customer.name}</td>
+                                <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>
+                                <td>{customer.dayOfBirth}</td>
+                                <td>{customer.gender}</td>
+                                <td>{customer.identityCard}</td>
+                                <td>{customer.phoneNumber}</td>
+                                <td>{customer.email}</td>
+                                <td>{customer.address}</td>
+                                <td>
+                                    <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
 
-                                <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
-                                        onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
-                                </button>
-                            </td>
+                                    <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
+                                            onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
+                                    </button>
+                                </td>
 
-                        </tr>
+                            </tr>
+
 
                     ))
                 }
@@ -102,7 +105,7 @@ export function Customer() {
         return (
             <>
                 <Items currentItems={currentItems} />
-                <div className="pagination-card">
+                <div className="pagination-card" style={{marginTop:"20px"}}>
                     <ReactPaginate
                         breakLabel="..."
                         nextLabel=">"
@@ -122,25 +125,58 @@ export function Customer() {
     return(
         <Layout>
         <>
+        <Formik initialValues={{
+            name:'',
+            phoneNumber:''
+        }}
+                onSubmit={(values )=> {
+                    console.log(values)
+                    const search = async () =>{
+                     const  res =   await  customerService.findByName(values.name,values.phoneNumber)
+                        setCustomer(res)
+                    }
+                    search();
+                }}>
+
+            <Form className="d-flex" style={{    marginTop: "20px",  marginBottom: "20px",   justifyContent: "flex-end"}}>
+                <Field
+                    style={{backgroundColor: "white",width:" 20vw",marginRight:"20px"}}
+                    className="form-control"      type="text"     placeholder="Search By Name"   name='name' />
+                <Field
+                    style={{backgroundColor: "white",width:"20vw",marginRight:"20px"}}
+                    className="form-control"   type="text"   placeholder="Search By Phone"   name='phoneNumber'
+                />
+
+                <button  className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black",marginRight :"20px"}}       type="submit"    >
+                    Search
+                </button>
+                <button   className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black"}} type={"reset"} >
+                    Back
+                </button>
+            </Form>
+
+
+        </Formik>
             <div style={{textAlign:" center"}}>
                 <h1>Customer List</h1>
 
             </div>
+
             <table className="table table-striped">
-                <thead>
-                <tr>
-                    <th>STT</th>
-                    <th> Name</th>
-                    <th>Type Customer</th>
-                    <th>Birthday</th>
-                    <th>Gender</th>
-                    <th>Identity Card</th>
-                    <th>Phone </th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Function</th>
-                </tr>
-                </thead>
+                 <thead>
+                 <tr>
+                     <th>STT</th>
+                     <th> Name</th>
+                     <th>Type Customer</th>
+                     <th>Birthday</th>
+                     <th>Gender</th>
+                     <th>Identity Card</th>
+                     <th>Phone </th>
+                     <th>Email</th>
+                     <th>Address</th>
+                     <th>Function</th>
+                 </tr>
+                 </thead>
                 <tbody>
                 <PaginatedItems itemsPerPage={3} list={customers}/>
                 {/*{*/}

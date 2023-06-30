@@ -1,59 +1,114 @@
 {
   "customer": [
     {
-      "name": "Nguyễn Đức Thắnggggg",
+      "name": "Nguyễn Đức Thắng",
       "typeCustomerId": 1,
       "dayOfBirth": "2023-06-22",
-      "gender": "Nam",
+      "gender": "Male",
       "identityCard": "201854945",
-      "phoneNumber": 7823919433,
+      "phoneNumber": "07823919433",
       "email": "nguyenthangfa2001@gmail.com",
       "address": "Hoa Xuan,Cam Le,Da Nang",
       "id": 1
     },
     {
+      "id": 2,
       "name": "Đinh Nguyên Thảo",
+      "typeCustomerId": 3,
+      "dayOfBirth": "2023-06-14",
+      "gender": "FeMale",
+      "identityCard": "201899999",
+      "phoneNumber": "0909129129",
+      "email": "nguyenthao@gmail.com",
+      "address": "Da Nang"
+    },
+    {
+      "id": 3,
+      "name": "Nguyễn Đức Thành",
+      "typeCustomerId": 3,
+      "dayOfBirth": "2023-06-23",
+      "gender": "Male",
+      "identityCard": "201854945",
+      "phoneNumber": "07823919433",
+      "email": "nguyenthangfa2001@gmail.com",
+      "address": "Hoa Xuan,Cam Le,Da Nang"
+    },
+    {
+      "name": "Đinh Nguyên ",
       "typeCustomerId": 2,
       "dayOfBirth": "2023-06-14",
-      "gender": "Nữ",
+      "gender": "Female",
       "identityCard": "201899999",
       "phoneNumber": "0909129129",
       "email": "nguyenthao@gmail.com",
       "address": "Da Nang",
-      "id": 2
+      "id": 4
     },
     {
-      "id": 3,
-      "name": "Nguyen Huy Hoang",
-      "typeCustomerId": 3,
-      "dayOfBirth": "2023-06-07",
-      "gender": "FeMale",
-      "identityCard": 45,
-      "phoneNumber": 909123837,
-      "email": "nguyenthangfa2001@gmail.com",
-      "address": "Đà Nẵng"
+      "name": "Tòng Phu ",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2023-06-14",
+      "gender": "Female",
+      "identityCard": "201899999",
+      "phoneNumber": "0909129129",
+      "email": "nguyenthao@gmail.com",
+      "address": "Da Nang",
+      "id": 5
+    },
+    {
+      "name": "Kawi ",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2023-06-14",
+      "gender": "Female",
+      "identityCard": "201899999",
+      "phoneNumber": "0909129129",
+      "email": "nguyenthao@gmail.com",
+      "address": "Da Nang",
+      "id": 6
     },
     {
       "name": "Hoa Quoc",
       "typeCustomerId": 2,
-      "dayOfBirth": "2023-06-24",
+      "dayOfBirth": "2023-06-10",
       "gender": "FeMale",
-      "identityCard": 12345678,
+      "identityCard": 123456789,
       "phoneNumber": 909000453,
       "email": "uthoa@gmail.com",
-      "address": "",
-      "id": 4
+      "address": "âsa",
+      "id": 7
     },
     {
-      "name": "Nguyen Huy Hoang",
-      "typeCustomerId": 3,
-      "dayOfBirth": "2023-06-23",
-      "gender": "FeMale",
-      "identityCard": 123,
-      "phoneNumber": 909123837,
-      "email": "nguyenthangfa2001@gmail.com",
-      "address": "Đà Nẵng",
-      "id": 5
+      "name": "Hoa Quoc",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2023-06-22",
+      "gender": "Male",
+      "identityCard": 123456789,
+      "phoneNumber": 909000453,
+      "email": "uthoa@gmail.com",
+      "address": "âsa",
+      "id": 8
+    },
+    {
+      "name": "Hoa Quoc",
+      "typeCustomerId": 1,
+      "dayOfBirth": "2023-06-21",
+      "gender": "Male",
+      "identityCard": "123456789",
+      "phoneNumber": "0909000453",
+      "email": "uthoa@gmail.com",
+      "address": "âsa",
+      "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Hoa Quoc",
+      "typeCustomerId": 1,
+      "dayOfBirth": "2023-06-16",
+      "gender": "Male",
+      "identityCard": "012345678",
+      "phoneNumber": "0909000453",
+      "email": "uthoa@gmail.com",
+      "address": "âsa"
     }
   ],
   "typeCustomer": [
@@ -85,33 +140,43 @@
       "dayStart": "27/06/2023",
       "endDay": "30/06/2023",
       "deposit": 500,
-      "totalMoney": 1000
+      "total": 1000
     },
     {
       "id": 2,
-      "contractCode": "HD-245",
+      "contractCode": "HD-2",
       "dayStart": "25/06/2023",
       "endDay": "27/06/2023",
       "deposit": 400,
-      "totalMoney": 1500
+      "total": 1500
     },
     {
       "id": 3,
-      "contractCode": "ĐInh Thảo",
-      "customerList": "2",
-      "dayStart": "2023-06-15",
-      "endDay": "2023-06-24",
-      "deposit": 122,
-      "totalMoney": 122
-    },
-    {
-      "id": 4,
-      "contractCode": "Trương An",
-      "customerList": "",
+      "contractCode": "HD-3",
+      "customerList": "Nguyen Huy Hoang",
+      "typeService": "Room",
       "dayStart": "2023-06-29",
       "endDay": "2023-06-24",
       "deposit": 1233,
-      "totalMoney": 1255
+      "total": 1255
+    },
+    {
+      "id": 5,
+      "contractCode": "HD-4",
+      "dayStart": "2023-06-23",
+      "endDay": "2023-06-23",
+      "deposit": 1233,
+      "total": 1222
+    },
+    {
+      "id": 6,
+      "contractCode": "HD-323",
+      "customerList": "4",
+      "serviceList": "2",
+      "dayStart": "2023-06-14",
+      "endDay": "2023-06-24",
+      "deposit": 2,
+      "total": 100
     }
   ],
   "facility": [
@@ -237,6 +302,21 @@
       "roomStandard": "1111111",
       "floors": "1111111",
       "areaSwimming": "11111",
+      "freeServiceIncluded": "",
+      "img": "https://th.bing.com/th/id/R.77f7eb755ad3480164e127a38871795f?rik=NkuaVH5mZUQmtQ&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 11,
+      "typeId": 3,
+      "name": "111",
+      "area": 111,
+      "rentalCost": 11,
+      "maxPeople": "11",
+      "rentalType": "Month",
+      "descriptionOtherAmenities": "11",
+      "roomStandard": "11",
+      "floors": "11",
+      "areaSwimming": "11",
       "freeServiceIncluded": "",
       "img": "https://th.bing.com/th/id/R.77f7eb755ad3480164e127a38871795f?rik=NkuaVH5mZUQmtQ&pid=ImgRaw&r=0"
     }

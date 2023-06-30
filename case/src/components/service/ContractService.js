@@ -8,6 +8,14 @@ export const getAll = async () => {
         console.log(e)
     }
 }
+export const findByDeposit= async (deposit) => {
+    try {
+        const result= await axios.get(`http://localhost:8080/contract?deposit=${deposit}`)
+        return result.data
+    }catch (e) {
+        console.log(e)
+    }
+}
 
 export const save =async (contract)=>{
     try {

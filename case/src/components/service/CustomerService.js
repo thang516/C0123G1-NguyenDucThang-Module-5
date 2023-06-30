@@ -2,7 +2,15 @@ import axios, {get} from "axios";
 
 export const getAll = async () => {
     try {
-        const result= await axios.get('http://localhost:8080/customer')
+        const result= await axios.get('http://localhost:8080/customer?_sort=name&_order=desc')
+        return result.data
+    }catch (e) {
+        console.log(e)
+    }
+}
+export const findByName = async (name,phone) => {
+    try {
+        const result= await axios.get(`http://localhost:8080/customer?name_like=${name}&phoneNumber_like=${phone}`)
         return result.data
     }catch (e) {
         console.log(e)
