@@ -7,6 +7,7 @@ import axios from "axios";
 import {Field, Form, Formik} from "formik";
 import * as customerService from "../service/CustomerService"
 import {type} from "@testing-library/user-event/dist/type";
+import {toast} from "react-toastify";
 
 export function UpdateCustomer() {
     const navigate = useNavigate();
@@ -55,6 +56,7 @@ export function UpdateCustomer() {
                             ... values,
                             typeCustomerId: +values.typeCustomerId
                         })
+                        toast(`Customer ${values.name} Update Successfully `)
                         navigate("/customer")
                     }
                     update()

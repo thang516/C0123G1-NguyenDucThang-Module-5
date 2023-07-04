@@ -9,6 +9,8 @@ import ReactPaginate from "react-paginate";
 import {Field, Form, Formik} from "formik";
 import * as customerService from "../service/CustomerService";
 import * as contractService from "../service/ContractService";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 export function Contract() {
     const [contract, setContract] = useState([])
@@ -63,13 +65,12 @@ const navigate= useNavigate();
                                 <td> ${contracts.deposit}</td>
                                 <td> ${contracts.total}</td>
                                 <td>
-                                    <button className="btn btn-success" style={{backgroundColor: "#149570"}} onClick={()=>navigate("/updateContract/"+contracts.id)}>Edit
+                                    <button className="btn btn-success" style={{backgroundColor: "#149570",margin:"5px"}} onClick={()=>navigate("/updateContract/"+contracts.id)}>Edit
                                     </button>
                                     <button className="btn btn-success"   onClick={() => deleteContract(contracts.id, contracts.contractCode)} type="button" style={{backgroundColor: "#ff0039"}}  >Delete
                                     </button>
                                 </td>
                             </tr>
-
                         ))
                     }
 
@@ -77,35 +78,22 @@ const navigate= useNavigate();
         );
     }
 
-    function PaginatedItems({ itemsPerPage , list}) {
-        const [itemOffset, setItemOffset] = useState(0);
-        const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        const currentItems = list.slice(itemOffset, endOffset);
-        const pageCount = Math.ceil(list.length / itemsPerPage);
-        const handlePageClick = (event) => {
-            const newOffset = (event.selected * itemsPerPage) % list.length;
-            setItemOffset(newOffset);
-        };
-
+    function PaginatedItems({ currentItems}) {
         return (
             <>
                 <Items currentItems={currentItems} />
-                <div className="pagination-card">
-                    <ReactPaginate
-                        breakLabel="..."
-                        nextLabel=">"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
-                        pageCount={pageCount}
-                        previousLabel="<"
-                        renderOnZeroPageCount={null}
-                    />
-                </div>
             </>
         );
     }
-
+    const itemsPerPage = 3;
+    const [itemOffset, setItemOffset] = useState(0);
+    const endOffset = itemOffset + itemsPerPage;
+    const currentItems = contract.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(contract.length / itemsPerPage);
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % contract.length;
+        setItemOffset(newOffset);
+    };
 
     return (
 
@@ -128,7 +116,7 @@ const navigate= useNavigate();
                             style={{backgroundColor: "white",width:" 20vw",marginRight:"20px"}}
                             className="form-control"      type="text"     placeholder="Search By Deposit"   name='deposit' />
                             
-                        <button  className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black",marginRight :"20px"}}       type="submit"    >
+                        <button  className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black",marginRight :"20px"}} type="submit">
                             Search
                         </button>
                         <button   className="btn btn-secondary my-2 my-sm-0"  style={{backgroundColor: "black"}} type={"reset"} >
@@ -157,11 +145,32 @@ const navigate= useNavigate();
                     </tr>
                     </thead>
                     <tbody>
-                    <PaginatedItems itemsPerPage={3} list={contract}/>
-
+                        <PaginatedItems currentItems={currentItems}/>
                     </tbody>
                 </table>
-
+                <div className="pagination-card">
+                    <ReactPaginate
+                        breakLabel="..."
+                        nextLabel=">"
+                        onPageChange={handlePageClick}
+                        pageRangeDisplayed={5}
+                        pageCount={pageCount}
+                        previousLabel="<"
+                        renderOnZeroPageCount={null}
+                    />
+                </div>
+                <ToastContainer
+                    position="top-center"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                />
             </>
         </Layout>
     )

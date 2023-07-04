@@ -2,7 +2,7 @@ import './CreateContract.css'
 import {useNavigate} from "react-router-dom";
 import Layout from "../views/Layout";
 import React, {useEffect, useState} from "react";
-import {Field, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 
 import {toast} from "react-toastify";
 import {LineWave} from "react-loader-spinner";
@@ -10,11 +10,14 @@ import * as serviceContract from "../service/ContractService"
 import * as serviceCustomer from "../service/CustomerService"
 import * as serviceSer from "../service/ServicesSer"
 import {useParams} from "react-router-dom";
+
+
 export function UpdateContract() {
     const navigate = useNavigate();
     const [customer,setCustomer] = useState();
     const [contract, setContract] = useState();
-    const [service,setService] = useState();
+    const [service,setService] = useState([]);
+    const [serviceId,setServiceId] = useState(0);
 
     const param = useParams();
     const findById = async () =>{
@@ -37,10 +40,13 @@ export function UpdateContract() {
         findById();
     },[])
 
+    if (!service){
+        return null
+    }
     if(!contract){
         return null
     }
-
+    console.log(service.find((ser) => ser.id == serviceId)?.rentalCost);
     return(
         <Layout>
             <>
@@ -52,11 +58,16 @@ export function UpdateContract() {
                     dayStart: contract?.dayStart,
                     endDay: contract?.endDay,
                     deposit: contract?.deposit,
-                    totalMoney: contract?.totalMoney
+                    total: contract?.total
+
                 }}
                         onSubmit={(values ,{setSubmitting}) => {
                             setSubmitting(false);
                             const update = async () => {
+                                values ={
+                                    ...values,
+                                    total:service.find((ser) => ser.id == serviceId)?.rentalCost
+                                }
                                 await  serviceContract.updateContract(values)
                                 toast(`Contract ${values.contractCode} update Successfully`)
                                 navigate("/contract")
@@ -90,18 +101,19 @@ export function UpdateContract() {
                                                     </Field>
 
                                                 </div>
-                                                <div className="mt-4 inputs"><label>Name Service</label>
-                                                    <Field as="select"   name="serviceList" style={{width: "100%", height: "40px"}}>>
+                                                <div   className="mt-4 inputs"><label>Name Service</label>
+                                                    <Field as="select"    onClick={(event)=>setServiceId(event.target.value)}   name="serviceList" style={{width: "100%", height: "40px"}}>
+                                                        <option defaultValue="">Select</option>
                                                         {
-                                                            service &&  service.map((typ) => (
-                                                                <option key={typ.id} value={typ.nameType}>
-                                                                    {typ.name}
+                                                            service  &&  service.map((ser) => (
+                                                                <option key={ser.id} value={ser.id}>
+                                                                    {ser.name}
                                                                 </option>
                                                             ))
                                                         }
 
                                                     </Field>
-
+                                                    <ErrorMessage name='serviceList' component='span' className='form-err'/>
                                                 </div>
 
                                                 <div className="mt-2 inputs"><label>Date Start</label>
@@ -119,6 +131,7 @@ export function UpdateContract() {
                                                     <Field className="form-control" name="deposit" type="number"/>
                                                 </div>
 
+                                                <h3 style={{marginTop :"30px"}}>Total Money : ${service.find((ser)=> ser.id==serviceId)?.rentalCost}</h3>
 
 
                                                 {

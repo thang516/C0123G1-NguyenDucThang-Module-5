@@ -11,7 +11,7 @@ import {getAllTypeCustomer} from "../service/CustomerService";
 import ReactPaginate from "react-paginate";
 import {Field, Form, Formik} from "formik";
 export function Customer() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [customers,setCustomer] = useState([])
     const [typeCustomer,setTypeCustomer] = useState([])
 
@@ -32,7 +32,7 @@ export function Customer() {
 
     }
 
-    const deleteById = async (id)=>{
+    const deleteById = async (id)=> {
             await  customerService.deleteCustomer(id);
              sweat.fire({
                 icon: "success",
@@ -59,7 +59,6 @@ export function Customer() {
     function Items({ currentItems }) {
         return (
             <>
-
                 {currentItems &&
                 currentItems.map((customer) => (
 
@@ -76,14 +75,11 @@ export function Customer() {
                                 <td>
                                     <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>
 
-                                    <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}
+                                    <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039",    margin: "5px"}}
                                             onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete
                                     </button>
                                 </td>
-
                             </tr>
-
-
                     ))
                 }
 
@@ -91,35 +87,26 @@ export function Customer() {
         );
     }
 
-    function PaginatedItems({ itemsPerPage , list}) {
-        const [itemOffset, setItemOffset] = useState(0);
-        const endOffset = itemOffset + itemsPerPage;
-        console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-        const currentItems = list.slice(itemOffset, endOffset);
-        const pageCount = Math.ceil(list.length / itemsPerPage);
-        const handlePageClick = (event) => {
-            const newOffset = (event.selected * itemsPerPage) % list.length;
-            setItemOffset(newOffset);
-        };
+    function PaginatedItems({currentItems}) {
+
 
         return (
             <>
                 <Items currentItems={currentItems} />
-                <div className="pagination-card" style={{marginTop:"20px"}}>
-                    <ReactPaginate
-                        breakLabel="..."
-                        nextLabel=">"
-                        onPageChange={handlePageClick}
-                        pageRangeDisplayed={5}
-                        pageCount={pageCount}
-                        previousLabel="<"
-                        renderOnZeroPageCount={null}
-                    />
-                </div>
+
             </>
         );
     }
-
+    const [itemOffset, setItemOffset] = useState(0);
+    const itemsPerPage =3;
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    const currentItems = customers.slice(itemOffset, endOffset);
+    const pageCount = Math.ceil(customers.length / itemsPerPage);
+    const handlePageClick = (event) => {
+        const newOffset = (event.selected * itemsPerPage) % customers.length;
+        setItemOffset(newOffset);
+    };
 
 
     return(
@@ -174,38 +161,25 @@ export function Customer() {
                      <th>Phone </th>
                      <th>Email</th>
                      <th>Address</th>
-                     <th>Function</th>
+                     <th>      Function</th>
                  </tr>
                  </thead>
                 <tbody>
-                <PaginatedItems itemsPerPage={3} list={customers}/>
-                {/*{*/}
-                {/*//     customers.map((customer) => (*/}
-                {/*//         <tr key={customer.id}>*/}
-                {/*//             <td>{customer.id}</td>*/}
-                {/*//             <td>{customer.name}</td>*/}
-                {/*//             <td>{ typeCustomer && typeCustomer.find(item=>item.id === customer.typeCustomerId)?.nameType}</td>*/}
-                {/*//             <td>{customer.dayOfBirth}</td>*/}
-                {/*//             <td>{customer.gender}</td>*/}
-                {/*//             <td>{customer.identityCard}</td>*/}
-                {/*//             <td>{customer.phoneNumber}</td>*/}
-                {/*//             <td>{customer.email}</td>*/}
-                {/*//             <td>{customer.address}</td>*/}
-                {/*//             <td>*/}
-                {/*//                 <button className="btn btn-success" onClick={()=> navigate('/updateCustomer/'+customer.id)} style={{backgroundColor: "#149570"}}>Edit</button>*/}
-                {/*//*/}
-                {/*//                 <button className="btn btn-success" type="button" style={{backgroundColor:"#ff0039"}}*/}
-                {/*//                      onClick={()=>deleteCustomer(customer.id,customer.name)} >Delete*/}
-                {/*//                 </button>*/}
-                {/*//             </td>*/}
-                {/*//*/}
-                {/*//         </tr>*/}
-                {/*//*/}
-                {/*//     ))*/}
-                {/*// }*/}
+                <PaginatedItems currentItems={currentItems}/>
+
                 </tbody>
             </table>
-
+            <div className="pagination-card" style={{marginTop:"20px"}}>
+                <ReactPaginate
+                    breakLabel="..."
+                    nextLabel=">"
+                    onPageChange={handlePageClick}
+                    pageRangeDisplayed={5}
+                    pageCount={pageCount}
+                    previousLabel="<"
+                    renderOnZeroPageCount={null}
+                />
+            </div>
             <ToastContainer
                 position="top-center"
                 autoClose={5000}

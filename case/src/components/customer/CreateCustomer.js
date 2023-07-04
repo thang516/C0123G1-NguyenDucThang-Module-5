@@ -21,6 +21,9 @@ export function CreateCustomer() {
      }
         typeCustomerList()
     }, [])
+    console.log(
+        typeCustomer
+    )
 
     return (
         <Layout>
@@ -40,12 +43,13 @@ export function CreateCustomer() {
                             name: Yup.string().required(),
                             gender: Yup.string().required(),
                             identityCard: Yup.string().required().matches(/^[0-9]{9}$/),
-                            phoneNumber: Yup.string().required(),
+                            phoneNumber: Yup.string().required().matches(/^0[0-9]{9}$/),
                             email: Yup.string().required().matches(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
                             address: Yup.string().required()
 
                         })}
                         onSubmit={(values, {setSubmitting}) => {
+                            console.log(values)
                             const create = async () => {
                                 setSubmitting(false)
                                 await customerService.save({

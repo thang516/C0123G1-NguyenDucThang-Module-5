@@ -64,7 +64,7 @@ export function Services() {
                             <div className="card-body">
                                 <h5 className="card-title">{service.name}</h5>
                                 <p className="card-text">
-                                    <p>{service.rentalCost}</p>
+                                    <h5>${service.rentalCost}</h5>
                                 </p>
                             </div>
                             <div className="card-footer">

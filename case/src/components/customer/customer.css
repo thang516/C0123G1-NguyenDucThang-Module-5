@@ -74,7 +74,7 @@ a {
 .pagination-card ul li{
     width: 35px;
     height: 35px;
-    background: #198754;
+    background: whitesmoke !important;
     border-radius: 999px;
     display: flex;
     justify-content: center;
@@ -82,7 +82,7 @@ a {
 }
 .pagination-card ul li a{
     background-color: transparent;
-    color: white;
+    color: #151414 !important;
     padding: 7px 10px;
 }
 .pagination-card ul .previous, .pagination-card ul .next {

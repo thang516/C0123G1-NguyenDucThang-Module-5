@@ -45,15 +45,15 @@
       "id": 4
     },
     {
+      "id": 5,
       "name": "Tòng Phu ",
-      "typeCustomerId": 2,
+      "typeCustomerId": 5,
       "dayOfBirth": "2023-06-14",
       "gender": "Female",
       "identityCard": "201899999",
       "phoneNumber": "0909129129",
       "email": "nguyenthao@gmail.com",
-      "address": "Da Nang",
-      "id": 5
+      "address": "Da Nang"
     },
     {
       "name": "Kawi ",
@@ -89,26 +89,15 @@
       "id": 8
     },
     {
-      "name": "Hoa Quoc",
-      "typeCustomerId": 1,
-      "dayOfBirth": "2023-06-21",
-      "gender": "Male",
-      "identityCard": "123456789",
-      "phoneNumber": "0909000453",
-      "email": "uthoa@gmail.com",
-      "address": "âsa",
-      "id": 9
-    },
-    {
       "id": 10,
-      "name": "Hoa Quoc",
-      "typeCustomerId": 1,
-      "dayOfBirth": "2023-06-16",
-      "gender": "Male",
-      "identityCard": "012345678",
-      "phoneNumber": "0909000453",
-      "email": "uthoa@gmail.com",
-      "address": "âsa"
+      "name": "Nguyễn Huy Đức",
+      "typeCustomerId": 2,
+      "dayOfBirth": "2010-06-08",
+      "gender": "FeMale",
+      "identityCard": "201854945",
+      "phoneNumber": "0782391943",
+      "email": "nguyenthangfa2001@gmail.com",
+      "address": "Hoa Xuan,Cam Le,Da Nangg"
     }
   ],
   "typeCustomer": [
@@ -153,12 +142,11 @@
     {
       "id": 3,
       "contractCode": "HD-3",
-      "customerList": "Nguyen Huy Hoang",
-      "typeService": "Room",
       "dayStart": "2023-06-29",
       "endDay": "2023-06-24",
       "deposit": 1233,
-      "total": 1255
+      "total": 300,
+      "serviceList": "3"
     },
     {
       "id": 5,
@@ -171,12 +159,20 @@
     {
       "id": 6,
       "contractCode": "HD-323",
-      "customerList": "4",
-      "serviceList": "2",
       "dayStart": "2023-06-14",
       "endDay": "2023-06-24",
       "deposit": 2,
-      "total": 100
+      "total": 300,
+      "serviceList": "4"
+    },
+    {
+      "id": 7,
+      "contractCode": "HD-9",
+      "dayStart": "2023-06-24",
+      "endDay": "2023-06-22",
+      "deposit": 123,
+      "total": 800,
+      "serviceList": "7"
     }
   ],
   "facility": [
@@ -307,18 +303,63 @@
     },
     {
       "id": 11,
-      "typeId": 3,
+      "typeId": 2,
       "name": "111",
       "area": 111,
       "rentalCost": 11,
       "maxPeople": "11",
-      "rentalType": "Month",
+      "rentalType": "Year",
       "descriptionOtherAmenities": "11",
       "roomStandard": "11",
       "floors": "11",
       "areaSwimming": "11",
-      "freeServiceIncluded": "",
+      "freeServiceIncluded": "ddd",
       "img": "https://th.bing.com/th/id/R.77f7eb755ad3480164e127a38871795f?rik=NkuaVH5mZUQmtQ&pid=ImgRaw&r=0"
+    },
+    {
+      "id": 12,
+      "typeId": 1,
+      "name": "Do Thanh Nhan",
+      "area": 11,
+      "rentalCost": 11,
+      "maxPeople": "11",
+      "rentalType": "Hour",
+      "descriptionOtherAmenities": "1111",
+      "roomStandard": "11",
+      "floors": "11",
+      "areaSwimming": "",
+      "freeServiceIncluded": "",
+      "img": "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg"
+    },
+    {
+      "id": 13,
+      "typeId": 1,
+      "name": "1",
+      "area": 1,
+      "rentalCost": 1,
+      "maxPeople": "1",
+      "rentalType": "Day",
+      "descriptionOtherAmenities": "1",
+      "roomStandard": "1",
+      "floors": "1",
+      "areaSwimming": "",
+      "freeServiceIncluded": "",
+      "img": "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg"
+    },
+    {
+      "id": 14,
+      "typeId": 2,
+      "name": "Do Thanh Nhan",
+      "area": 1,
+      "rentalCost": 1,
+      "maxPeople": "1",
+      "rentalType": "Day",
+      "descriptionOtherAmenities": "1",
+      "roomStandard": "1",
+      "floors": "1",
+      "areaSwimming": "",
+      "freeServiceIncluded": "11",
+      "img": "https://vcdn-dulich.vnecdn.net/2020/09/04/1-Meo-chup-anh-dep-khi-di-bien-9310-1599219010.jpg"
     }
   ],
   "typeService": [

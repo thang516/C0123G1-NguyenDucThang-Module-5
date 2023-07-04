@@ -48,8 +48,7 @@ export function CreateSer() {
                             .required(),
                         rentalType: Yup.string()
                             .required(),
-                        descriptionOtherAmenities: Yup.string()
-                            .required(),
+                        descriptionOtherAmenities: Yup.string(),
                         img: Yup.string()
                             .required(),
                     })}
@@ -65,154 +64,182 @@ export function CreateSer() {
                         create();
                     }}>
                 {
-                    ({isSubmitting}) => (
+                    ({
+                         isSubmitting,
+                         values, setValue
+                     }) => {
+                        return (
+                            <div className="container mt-5 mb-5 ">
+                                <div
+                                    className="row height d-flex justify-content-center align-items-center"
 
-                        <div className="container mt-5 mb-5 ">
-                            <div
-                                className="row height d-flex justify-content-center align-items-center"
+                                >
+                                    <div className="col-md-6">
+                                        <div className="card px-5 py-4">
+                                            <div style={{textAlign: "center"}}>
+                                                <h2 style={{color: "black"}}>Create Service</h2>
+                                            </div>
+                                            <Form>
 
-                            >
-                                <div className="col-md-6">
-                                    <div className="card px-5 py-4">
-                                        <div style={{textAlign: "center"}}>
-                                            <h2 style={{color: "black"}}>Create Service</h2>
-                                        </div>
-                                        <Form>
+                                                <div className=" mt-4 inputs">
+                                                    <label>Type</label>
+                                                    <Field as="select" name="typeId" className="form-control"
+                                                           data-error="Please specify your need."
+                                                    onChange={(e)=> console.log(e)}
+                                                    >
+                                                        {
+                                                            typeService && typeService.map((type)=>(
+                                                                <option key={type.id} value={type.id} >
+                                                                    {type.nameType}
+                                                                </option>
+                                                            ))
 
-                                            <div className=" mt-4 inputs">
-                                                <label>Type</label>
-                                                <Field as="select" name="typeId" className="form-control"
-                                                       data-error="Please specify your need.">
+                                                        }
+                                                    </Field>
+                                                </div>
+                                                <div className=" mt-4 inputs">
+                                                    <label>Name</label>
+                                                    <Field type="text" className="form-control" name="name"
+                                                    />
+                                                    <ErrorMessage name="name" component="span" className="error-r"/>
+
+                                                </div>
+
+                                                <div className=" mt-4 inputs">
+                                                    <label>Area</label>
+                                                    <Field type="number" className="form-control" name="area"/>
+                                                    <ErrorMessage name="area" component="span" className="error-r"/>
+                                                </div>
+
+                                                <div className="row mt-4  ">
+                                                    <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
+                                                        <label>Rental Cost</label>
+                                                        <Field type="number" name="rentalCost" className="form-control"/>
+                                                        <ErrorMessage name="rentalCost" component="span"
+                                                                      className="error-r"/>
+
+                                                    </div>
+                                                    <div className="col-md-6 form-group mt-3 mt-md-0"
+                                                         style={{paddingLeft: "0"}}>
+                                                        <label>Maximum People</label>
+                                                        <Field
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="maxPeople"/>
+                                                        <ErrorMessage name="maxPeople" component="span"
+                                                                      className="error-r"/>
+
+                                                    </div>
+                                                </div>
+                                                <div className="mt-4 inputs">
+                                                    <label>Rental Type</label>
+                                                    <Field name="rentalType" className="form-control" as="select">
+                                                        <option value="Year">Year</option>
+                                                        <option value="Month">Month</option>
+                                                        <option value="Day">Day</option>
+                                                        <option value="Hour">Hour</option>
+                                                    </Field>
+                                                    <ErrorMessage name="rentalType" component="span" className="error-r"/>
+
+                                                </div>
+                                                {
+                                                    (Number(values.typeId) ===1 || Number(values.typeId)===3)
+                                                    &&       <div className="mt-4 ">
+                                                        <label>Description Of Other Amenities </label>
+                                                        <Field
+                                                            type="text" className="form-control"
+                                                            name="descriptionOtherAmenities"/>
+                                                    </div>
+
+                                                }
+
+                                                <div className="row mt-4  ">
+
                                                     {
-                                                        typeService &&   typeService.map((type)=>(
-                                                            <option key={type.id} value={type.id} >
-                                                                {type.nameType}
-                                                            </option>
-                                                        ))
+                                                        (Number(values.typeId)=== 1 ||  Number(values.typeId)=== 3)  &&
+                                                        <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
+                                                            <label>Floor </label>
+                                                            <Field
+                                                                type="text"
+                                                                name="floors" className="form-control"/>
+                                                        </div>
 
                                                     }
-                                                </Field>
-                                            </div>
-                                            <div className=" mt-4 inputs">
-                                                <label>Name</label>
-                                                <Field type="text" className="form-control" name="name"
-                                                />
-                                                <ErrorMessage name="name" component="span" className="error-r"/>
-
-                                            </div>
-                                            <div className=" mt-4 inputs">
-                                                <label>Area</label>
-                                                <Field type="number" className="form-control" name="area"/>
-                                                <ErrorMessage name="area" component="span" className="error-r"/>
-                                            </div>
-
-                                            <div className="row mt-4  ">
-                                                <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
-                                                    <label>Rental Cost</label>
-                                                    <Field type="number" name="rentalCost" className="form-control"/>
-                                                    <ErrorMessage name="rentalCost" component="span"
-                                                                  className="error-r"/>
+                                                    {
+                                                        (Number(values.typeId)=== 1 ||  Number(values.typeId)=== 3) &&
+                                                        <div className="col-md-6 form-group mt-3 mt-md-0"
+                                                             style={{paddingLeft: "0"}}>
+                                                            <label> Room Standard</label>
+                                                            <Field type="text" className="form-control" name="roomStandard"/>
+                                                        </div>
+                                                    }
 
                                                 </div>
-                                                <div className="col-md-6 form-group mt-3 mt-md-0"
-                                                     style={{paddingRight: "0"}}>
-                                                    <label>Maximum People</label>
-                                                    <Field
-                                                        type="text"
-                                                        className="form-control"
-                                                        name="maxPeople"/>
-                                                    <ErrorMessage name="maxPeople" component="span"
-                                                                  className="error-r"/>
+                                                <div className="row mt-4">
+                                                    {
+                                                       Number(values.typeId)===3 &&
+                                                        <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
+                                                            <label>Area Swimming pool </label>
+                                                            <Field
+                                                                type="text" name="areaSwimming" className="form-control"/>
+                                                        </div>
+                                                    }
+                                                    {
+                                                        Number(values.typeId) ===2 &&
+                                                        <div className="col-md-6 form-group mt-3 mt-md-0"
+                                                             style={{paddingLeft: "0 !important"}}>
+                                                            <label>Free Service Included </label>
+                                                            <Field   className="form-control"
+                                                                     name="freeServiceIncluded">
+                                                            </Field>
+                                                        </div>
+                                                    }
+
 
                                                 </div>
-                                            </div>
-                                            <div className="mt-4 inputs">
-                                                <label>Rental Type</label>
-                                                <Field name="rentalType" className="form-control" as="select">
-                                                    <option value="Year">Year</option>
-                                                    <option value="Month">Month</option>
-                                                    <option value="Day">Day</option>
-                                                    <option value="Hour">Hour</option>
-                                                </Field>
-                                                <ErrorMessage name="rentalType" component="span" className="error-r"/>
-
-                                            </div>
-                                            <div className="mt-4 ">
-                                                <label>Description Of Other Amenities (*House,Villa) </label>
-                                                <Field
-                                                    type="text" className="form-control"
-                                                    name="descriptionOtherAmenities"/>
-                                            </div>
-                                            <div className="row mt-4  ">
-                                                <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
-                                                    <label>Floor (*Villa)</label>
-                                                    <Field
-                                                        type="text"
-                                                        name="floors" className="form-control"/>
+                                                <div className=" mt-4 inputs">
+                                                    <label>Img</label>
+                                                    <Field type="text" className="form-control" name="img"/>
                                                 </div>
-                                                <div className="col-md-6 form-group mt-3 mt-md-0"
-                                                     style={{paddingRight: "0"}}>
-                                                    <label> Room Standard (*House,Villa)</label>
-                                                    <Field type="text" className="form-control" name="roomStandard"/>
-                                                </div>
-                                            </div>
-                                            <div className="row mt-4  ">
-                                                <div className="col-md-6 form-group" style={{paddingLeft: "0"}}>
-                                                    <label>Area Swimming pool (*House,Villa)</label>
-                                                    <Field
-                                                        type="text" name="areaSwimming" className="form-control"/>
-                                                </div>
-                                                <div className="col-md-6 form-group mt-3 mt-md-0"
-                                                     style={{paddingRight: "0"}}>
-                                                    <label>Free Service Included (*Room)</label>
-                                                    <Field   className="form-control"
-                                                           name="freeServiceIncluded">
-                                                    </Field>
 
+                                                {
+                                                    isSubmitting ?
+                                                        <LineWave
+                                                            height="100"
+                                                            width="100"
+                                                            color="#4fa94d"
+                                                            ariaLabel="line-wave"
+                                                            wrapperStyle={{}}
+                                                            wrapperClass=""
+                                                            visible={true}
+                                                            firstLineColor=""
+                                                            middleLineColor=""
+                                                            lastLineColor=""
+                                                        />
+                                                        :
+                                                        <div className="text-center mt-4 btn-group">
+                                                            <button type="submit" className=" btn btn-success">
+                                                                <b className="text-center">Create</b>
+                                                            </button>
+                                                        </div>
+                                                }
+                                                <div className="text-center mt-4 btn-group">
+                                                    <button type="submit"
+                                                            className=" btn btn-success integration"
+                                                            onClick={() => navigate('/customer')}
+                                                            style={{backgroundColor: "black"}}>
+                                                        <b>Back</b>
+                                                    </button>
                                                 </div>
-                                            </div>
-                                            <div className=" mt-4 inputs">
-                                                <label>Img</label>
-                                                <Field type="text" className="form-control" name="img"/>
-                                            </div>
 
-                                            {
-                                                isSubmitting ?
-                                                    <LineWave
-                                                        height="100"
-                                                        width="100"
-                                                        color="#4fa94d"
-                                                        ariaLabel="line-wave"
-                                                        wrapperStyle={{}}
-                                                        wrapperClass=""
-                                                        visible={true}
-                                                        firstLineColor=""
-                                                        middleLineColor=""
-                                                        lastLineColor=""
-                                                    />
-                                                    :
-                                                    <div className="text-center mt-4 btn-group">
-                                                        <button type="submit" className=" btn btn-success">
-                                                            <b className="text-center">Create</b>
-                                                        </button>
-                                                    </div>
-                                            }
-                                            <div className="text-center mt-4 btn-group">
-                                                <button type="submit"
-                                                        className=" btn btn-success integration"
-                                                        onClick={() => navigate('/customer')}
-                                                        style={{backgroundColor: "black"}}>
-                                                    <b>Back</b>
-                                                </button>
-                                            </div>
-
-                                        </Form>
+                                            </Form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                    )
+                        )
+                    }
                 }
 
             </Formik>

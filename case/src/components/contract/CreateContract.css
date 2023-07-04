@@ -64,3 +64,6 @@ body {
     border-radius: 0.25rem;
     background-color: #149570;
 }
+.date-contact .react-datepicker-wrapper input{
+    width: 300px !important; ;
+}
