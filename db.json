@@ -1,0 +1,98 @@
+{
+  "bill": [
+    {
+      "id": 1,
+      "billCode": 200,
+      "date": "21/03/2020",
+      "total": 1000,
+      "amount": 1,
+      "productId": 1
+    },
+    {
+      "id": 2,
+      "billCode": 201,
+      "date": "15/03/2020",
+      "total": 2400,
+      "amount": 2,
+      "productId": 2
+    },
+    {
+      "id": 3,
+      "billCode": 202,
+      "date": "11/01/2020",
+      "total": 1200,
+      "amount": 3,
+      "productId": 3
+    },
+    {
+      "id": 4,
+      "billCode": 203,
+      "date": "11/12/2020",
+      "total": 600,
+      "amount": 1,
+      "productId": 4
+    },
+    {
+      "id": 5,
+      "billCode": 204,
+      "date": "15/08/2020",
+      "total": 1000,
+      "amount": 1,
+      "productId": 5
+    },
+    {
+      "id": 6,
+      "billCode": 205,
+      "date": "09/06/2020",
+      "total": 1050,
+      "amount": 1,
+      "productId": 6
+    },
+    {
+      "billCode": 209,
+      "date": "2023-07-04",
+      "total": 123,
+      "amount": 2,
+      "productId": 1,
+      "id": 7
+    }
+  ],
+  "product": [
+    {
+      "id": 1,
+      "nameProduct": "Iphone X",
+      "price": 1000,
+      "typeProduct": "Điện Thoại"
+    },
+    {
+      "id": 2,
+      "nameProduct": "Samsung Note 10",
+      "price": 1200,
+      "typeProduct": "Điện Thoại"
+    },
+    {
+      "id": 3,
+      "nameProduct": "Dell Vostrol 5302",
+      "price": 400,
+      "typeProduct": "LapTop"
+    },
+    {
+      "id": 4,
+      "nameProduct": "Acer 5302",
+      "price": 600,
+      "typeProduct": "Laptop"
+    },
+    {
+      "id": 5,
+      "nameProduct": "Iphone 8 plus 1280",
+      "price": 500,
+      "typeProduct": "Điện Thoại"
+    },
+    {
+      "id": 6,
+      "nameProduct": "Oppo F10",
+      "price": 350,
+      "typeProduct": "Điện Thoại"
+    }
+  ]
+}
